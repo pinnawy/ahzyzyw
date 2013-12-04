@@ -1,0 +1,112 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="site.master.cs" Inherits="Ahzyzyw.Web.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>安徽中药资源网</title>
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="css/webmain.css" rel="stylesheet" type="text/css" />
+    <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="scripts/jquery/jquery-1.7.js"></script>
+    <script src="Scripts/plugin/jquery.blockUI.js" type="text/javascript"></script>
+    <script type="text/javascript" src="scripts/plugin/jquery.KinSlideshow-1.2.1.js"></script>
+    <script type="text/javascript" src="scripts/plugin/ddsmoothmenu.js"></script>
+    <script type="text/javascript" src="Scripts/Master.js"></script>
+    <script type="text/javascript">
+//        var WebRoot = '<% =WebRoot %>';
+        ddsmoothmenu.init({
+            mainmenuid: "index-Menu", //menu DIV id
+            orientation: 'h',         //Horizontal or vertical menu: Set to "h" or "v"
+            classname: 'ddsmoothmenu', //class added to menu's outer DIV
+            //customtheme: ["#1c5a80", "#18374a"],
+            contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+        });
+    </script>
+    <script type="text/javascript" src="scripts/plugin/webtry_roll.js"></script>
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="scripts/minmax.js"></script>
+    <![endif]-->
+
+    <asp:ContentPlaceHolder ID="HeaderPlaceHolder" runat="server" />
+</head>
+<body onload="initSelectedMenu()">
+    <div id="index-wrapper">
+        <div class="index-top" id="top">
+            <img src="images/logo.png" alt="安徽中医药资源网" id="index-logo" />
+         </div>
+        <div id="index-Menu" class="ddsmoothmenu">
+            <ul>
+                <li><a href="index.aspx" id="IndexMenu" title="首页"><span>首页</span></a>
+                    <ul class="menulevel">
+                        <li><a href="ahres.aspx" title="安徽药用资源概况">安徽药用资源概况</a></li>
+                    </ul>
+                </li>
+                <li><a href="medicine.aspx" id="MedicineMenu" title="芜湖药用植物资源"><span>芜湖药用植物资源</span></a>
+                    <ul class="menulevel">
+                        <li><a href="empty.aspx" title="芜湖药用植物资源概况">芜湖药用植物资源概况</a></li>
+                        <li><a href="medicine.aspx" title="药用植物分类">药用植物分类</a></li>
+                    </ul>
+                </li>
+                <li><a href="garden.aspx" id="GardenMenu" title="网上植物园"><span>网上植物园</span></a>
+                    <ul class="menulevel">
+                        <li><a href="garden.aspx" title="药园概况">药园概况</a></li>
+                        <li><a href="zwyzy.aspx" title="药园医药资源">药园医药资源</a></li>
+                    </ul>
+                </li>
+                <li><a href="study.aspx" id="StudyMenu" title="药用植物学习"><span>药用植物学习</span></a>
+                    <ul class="menulevel">
+                        <li><a href="empty.aspx" title="野外采药">野外采药</a></li>
+                        <li><a href="empty.aspx" title="药用植物学习">药用植物学习</a></li>
+                    </ul>
+                </li>
+                <li><a href="produce.aspx" id="ProduceMenu" title="供求信息"><span>供求信息</span></a>
+                    <ul class="menulevel">
+                        <li><a href="empty.aspx" title="药材供应">药材供应</a></li>
+                        <li><a href="empty.aspx" title="药材求购">药材求购</a></li>
+                        <li><a href="empty.aspx" title="种子、种苗供应">种子、种苗供应</a></li>
+                        <li><a href="empty.aspx" title="种子、种苗求购">种子、种苗求购</a></li>
+                    </ul>
+                </li>
+                <li><a href="specimen.aspx" id="SpecimenMenu" title="标本供应"><span>标本供应</span></a>
+                    <ul class="menulevel">
+                        <li><a href="empty.aspx" title="腊叶标本">腊叶标本</a></li>
+                        <li><a href="empty.aspx" title="浸制标本">浸制标本</a></li>
+                        <li><a href="empty.aspx" title="实验样本采集">实验样本采集</a></li>
+                    </ul>
+                </li>
+                <li><a href="service.aspx" id="ServiceMenu" title="技术服务"><span>技术服务</span></a>
+                    <ul class="menulevel">
+                        <li><a href="empty.aspx" title="种植基地规划">种植基地规划</a></li>
+                        <li><a href="empty.aspx" title="GAP基地建设">GAP基地建设</a></li>
+                        <li><a href="empty.aspx" title="药园建设">药园建设</a></li>
+                        <li><a href="empty.aspx" title="药材种植养殖指导">药材种植养殖指导</a></li>
+                        <li><a href="empty.aspx" title="药材深加工">药材深加工</a></li>
+                        <li><a href="empty.aspx" title="科研项目">科研项目</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+        <div id="banner">
+            <a href="medicine.aspx"><img src="images/banner01.jpg" alt="芜湖丫山向有“牡丹之乡”的美称，牡丹不仅具有观赏价值，而且它的根可入药"/></a>
+            <a href="zwyzy.aspx"><img src="images/banner02.jpg" alt="安徽省中医药高专药苑，种植多种具有药用功效的植物"/></a>
+            <a href="garden.aspx"><img src="images/banner03.jpg" alt="安徽省中医药高专药苑，种植多种具有药用功效的植物"/></a>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $("#banner").KinSlideshow();
+            })
+        </script>
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+    </div>
+    <div id="copyright">
+        <p>
+            Copyright &copy;2011-2012&nbsp;<a href="http://www.ahzyzyw.com" title="安徽中医药资源网">安徽中药资源网www.ahzyzyw.com</a>
+            All Rights Reserved.<br />
+            <span>地址: </span>安徽省芜湖市乌霞山西路18号 <span>邮编: </span>241002 <span>联系人: </span>汪先生<br />
+            <span>QQ: </span>59858705<span> 邮箱: </span>59858705@qq.com</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+2012-01-10 14:23:50,327 334  [4] INFO  AhzyzywWebLog (null) - 
+
+*============================================================
+Subject:   Ahzyzyw Log File
+BeginTime: 2012/01/10,14:23:50,291
+MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
+Version:   10.0.30319.1
+ProcessID: 5760(0x1680)
+=============================================================
+
+2012-01-10 14:23:54,864 4871 [11] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
+fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+2012-01-10 14:49:19,749 1529756 [22] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NotImplementedException: The method or operation is not implemented.
+   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.DeleteCategory(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 131
+   at Ahzyzyw.BLL.RecourceBLL.DeleteCategory(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 86
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
+   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
+   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 21
+2012-01-10 14:49:46,877 1556884 [24] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NotImplementedException: The method or operation is not implemented.
+   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.DeleteCategory(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 131
+   at Ahzyzyw.BLL.RecourceBLL.DeleteCategory(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 86
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
+   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
+   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 21
+2012-01-10 14:50:17,611 125  [13] INFO  AhzyzywWebLog (null) - 
+
+*============================================================
+Subject:   Ahzyzyw Log File
+BeginTime: 2012/01/10,14:50:17,603
+MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
+Version:   10.0.30319.1
+ProcessID: 5760(0x1680)
+=============================================================
+
+2012-01-10 14:50:19,241 1755 [29] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
+fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+2012-01-10 15:04:44,966 86   [26] INFO  AhzyzywWebLog (null) - 
+
+*============================================================
+Subject:   Ahzyzyw Log File
+BeginTime: 2012/01/10,15:04:44,956
+MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
+Version:   10.0.30319.1
+ProcessID: 5760(0x1680)
+=============================================================
+
+2012-01-10 15:04:46,883 2003 [17] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
+fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+2012-01-10 19:30:08,500 348  [30] INFO  AhzyzywWebLog (null) - 
+
+*============================================================
+Subject:   Ahzyzyw Log File
+BeginTime: 2012/01/10,19:30:08,470
+MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
+Version:   10.0.30319.1
+ProcessID: 5760(0x1680)
+=============================================================
+
+2012-01-10 19:30:14,360 6207 [27] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
+fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+2012-01-10 19:30:33,658 25505 [30] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.Read()
+   at System.Data.SQLite.SQLiteCommand.ExecuteScalar()
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteScalar(String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 201
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReaderPager(Int32& recordCount, Int32 pageIndex, Int32 pageSize, String cmdText, String countText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 165
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReaderPager(Int32& recordCount, Int32 pageIndex, Int32 pageSize, String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 185
+   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.GetResourceList(ResourceQueryOption option, Int32& recordCount) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 42
+   at Ahzyzyw.BLL.RecourceBLL.GetResourceList(ResourceQueryOption option, Int32& recordCount) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 19
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
+   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
+   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 31
+2012-01-10 19:30:33,673 25520 [29] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader.Close()
+   at System.Data.Common.DbDataReader.Dispose(Boolean disposing)
+   at System.Data.Common.DbDataReader.Dispose()
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.PrepareCommand(SQLiteCommand cmd, String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 73
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReader(String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 159
+   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 83
+   at Ahzyzyw.BLL.RecourceBLL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 73
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
+   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
+   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 31
+2012-01-10 19:30:33,695 25542 [27] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader.Close()
+   at System.Data.Common.DbDataReader.Dispose(Boolean disposing)
+   at System.Data.Common.DbDataReader.Dispose()
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.PrepareCommand(SQLiteCommand cmd, String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 73
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReader(String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 159
+   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 83
+   at Ahzyzyw.BLL.RecourceBLL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 73
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
+   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
+   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 31
+2012-01-10 19:32:10,224 122071 [27] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at Ahzyzyw.Web.Services.Resource.UploadFoucsImage(HttpContext context, String resImageKey) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 80
+   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 27
+2012-01-10 20:05:22,206 98   [18] INFO  AhzyzywWebLog (null) - 
+
+*============================================================
+Subject:   Ahzyzyw Log File
+BeginTime: 2012/01/10,20:05:22,202
+MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
+Version:   10.0.30319.1
+ProcessID: 5760(0x1680)
+=============================================================
+
+2012-01-10 20:05:53,951 31843 [19] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
+fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+2012-01-10 20:18:19,237 93   [35] INFO  AhzyzywWebLog (null) - 
+
+*============================================================
+Subject:   Ahzyzyw Log File
+BeginTime: 2012/01/10,20:18:19,233
+MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
+Version:   10.0.30319.1
+ProcessID: 5760(0x1680)
+=============================================================
+
+2012-01-10 20:18:22,427 3283 [35] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
+fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+2012-01-10 21:42:09,709 151  [4] INFO  AhzyzywWebLog (null) - 
+
+*============================================================
+Subject:   Ahzyzyw Log File
+BeginTime: 2012/01/10,21:42:09,689
+MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
+Version:   10.0.30319.1
+ProcessID: 2732(0x0AAC)
+=============================================================
+
+2012-01-10 21:42:15,749 6191 [4] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
+fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
+2012-01-10 21:42:44,250 34691 [8] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader.Close()
+   at System.Data.Common.DbDataReader.Dispose(Boolean disposing)
+   at System.Data.Common.DbDataReader.Dispose()
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.PrepareCommand(SQLiteCommand cmd, String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 73
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteScalar(String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 200
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReaderPager(Int32& recordCount, Int32 pageIndex, Int32 pageSize, String cmdText, String countText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 165
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReaderPager(Int32& recordCount, Int32 pageIndex, Int32 pageSize, String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 185
+   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.GetResourceList(ResourceQueryOption option, Int32& recordCount) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 42
+   at Ahzyzyw.BLL.RecourceBLL.GetResourceList(ResourceQueryOption option, Int32& recordCount) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 21
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
+   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
+   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
+2012-01-10 21:42:44,287 34728 [4] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: Connection was closed, statement was terminated
+   at System.Data.SQLite.SQLiteDataReader.CheckClosed()
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader.Close()
+   at System.Data.Common.DbDataReader.Dispose(Boolean disposing)
+   at System.Data.Common.DbDataReader.Dispose()
+   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   at System.Data.SQLite.SQLiteConnection.Open()
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.PrepareCommand(SQLiteCommand cmd, String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 73
+   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReader(String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 159
+   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 83
+   at Ahzyzyw.BLL.RecourceBLL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 94
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
+   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
+   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
+2012-01-10 22:44:56,241 3766683 [20] ERROR AhzyzywWebLog (null) - Resource::UploadResourceImage, Exception:
+System.NotImplementedException: The method or operation is not implemented.
+   at Ahzyzyw.BLL.RecourceBLL.UpdateResourceImage(Guid resID, Byte[] imageBytes, String ext) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 72
+   at Ahzyzyw.Web.Services.Resource.UploadResourceImage(HttpContext context, String resImageKey) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 102

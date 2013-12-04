@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>安徽中药资源网-管理平台</title>
+    <link href="../css/easyui-css/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="../css/easyui-css/icon.css" rel="stylesheet" type="text/css" />
+    <script src="../scripts/jquery/jquery-1.7.js" type="text/javascript"></script>
+    <script src="../scripts/plugin/jquery.json-2.2.min.js" type="text/javascript"></script>
+    <script src="../scripts/easyui/jquery.easyui.min-1.2.5.js" type="text/javascript"></script>
+    <script src="../scripts/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../scripts/plugin/jquery.form.js" type="text/javascript"></script>
+    <script src="../ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script src="../scripts/common.js" type="text/javascript"></script>
+    <script src="../scripts/manage.js" type="text/javascript"></script>
+</head>
+<body class="easyui-layout">
+	<div region="north" border="false" style="height:60px;background:#CCEAED;padding:10px">
+        <div style="float: right; width:150px; margin:0px 30px 10px 5px;">
+            <span>欢迎你;</span><span id="userName"></span><a class="easyui-linkbutton" plain="true" iconCls="icon-ok" href="javascript:void(0)">安全退出</a>
+        </div>
+    </div>
+
+	<div region="west" split="true" title="导航" style="width:200px;">
+        <div class="easyui-accordion" >
+		    <div title="资源管理" iconCls="icon-res" selected='true' style="overflow:auto;padding:10px;">
+                <a class="easyui-linkbutton" plain="true" iconCls="icon-res" href="javascript:void(0)">药用资源管理</a>
+                <br />
+                <a class="easyui-linkbutton" plain="true" iconCls="icon-ok" href="javascript:void(0)">资源分类管理</a>
+		    </div>
+		    <div title="用户管理" iconCls="icon-user" >
+		    </div>
+		    <div title="设置" iconCls="icon-setting">
+		    </div>
+	    </div>
+    </div>
+
+	
+	<div region="center" id="content">
+
+        <div title="资源管理">
+            <div style="padding: 10px;text-align:right;">
+                <input searcher="queryRes" prompt="输入资源名称" menu="#smm" class="easyui-searchbox"></input>
+                <div id="smm" style="width:80px">
+		            <div name="all" iconCls="icon-ok">全部分类</div>
+		            <div name="current">当前分类</div>
+                </div>
+	        </div>
+            <table id="resGrid"></table>
+        </div>
+        <div title="资源分类管理">
+            <div class="easyui-layout" fit="true" style="background:#ccc;">
+			    <div region="west" split="true" title="资源分类" style="width:300px;">
+                    <ul id="resCateTree"></ul>
+                    <div id="mm" class="easyui-menu" style="width:120px;">
+		                <div onclick="append()" iconCls="icon-add">添加</div>
+		                <div onclick="deleteResCate()" iconCls="icon-remove">删除</div>
+		                <div class="menu-sep"></div>
+		                <div onclick="expand()">展开</div>
+		                <div onclick="collapse()">收起</div>
+	                </div>
+                </div>
+			    <div region="center" title="分类详情">
+                    <form id="cateForm" method="post" style="margin: 10px;">
+                        <span>当前选择分类:</span>
+                        <span id="selectedCate"></span>
+                        <div style="margin: 3px;">
+                            <label for="CnTitle">
+                                中文名称:</label>
+                            <input class="easyui-validatebox" type="text" id="cateCnTitle" name="CnTitle" required="true"></input>
+                        </div>
+                        <div style="margin: 3px;"> 
+                            <label for="EnTitle">
+                                英文名称:</label>
+                            <input class="easyui-validatebox" type="text" id="cateEnTitle" name="EnTitle"></input>
+                        </div>
+
+                        <a class="easyui-linkbutton" id="btnEditCate" iconCls="icon-ok" href="javascript:void(0)" onclick="etidCate();">修改</a>
+                        <a class="easyui-linkbutton" id="btnAddCate" iconCls="icon-ok" href="javascript:void(0)" onclick="addCate();">添加</a>
+                    </form>
+                </div>
+		    </div>
+        </div>
+	</div>
+
+    <div region="south" border="false" style="height:70px;background:#CCEAED; text-align:center;">
+        <p>
+            Copyright &copy;2011-2012&nbsp;<a href="http://www.ahzyzyw.com" title="安徽中医药资源网">安徽中药资源网www.ahzyzyw.com</a>
+            All Rights Reserved.<br />
+            <span>地址: </span>安徽省芜湖市乌霞山西路18号 <span>邮编: </span>241002 <span>联系人: </span>汪先生<br />
+            <span>QQ: </span>59858705<span> 邮箱: </span>59858705@qq.com
+        </p>
+    </div>
+
+    <div id="addResWin" class="easyui-window" collapsible='false' minimizable='false' closed="true" modal="true" title="添加资源" style="width:650px;height:450px; padding:5px;">
+        <div class="easyui-layout" fit="true">
+		    <div region="center" border="false" style="padding:10px;background:#fff;border:1px solid #ccc;">
+                <form id="resForm" method="post" action="../services/Resource.ashx">
+                    <div style="height:220px;">
+                        <div style="width:280px;float:left;">
+                            <fieldset>
+                                <legend>资源属性</legend>
+                                    <div>
+                                        <label for="CnName">中文名称:</label>
+                                        <input class="easyui-validatebox" type="text" name="CnName"></input>
+                                    </div>
+                                    <div>
+                                        <label for="EnName">英文名称:</label>
+                                        <input class="easyui-validatebox" type="text" name="EnName"></input>
+                                    </div>
+                                    <div>
+                                        <label for="OtherName">别名:</label>
+                                        <input class="easyui-validatebox" type="text" name="OtherName"></input>
+                                    </div>
+                                    <div>
+                                        <label for="CategroyID">资源分类:</label>
+                                        <input id='cmbCateID' name="CategroyID"></input>
+                                    </div>
+                            </fieldset>
+                           
+                            <div>
+                                <fieldset>
+                                    <legend>资源状态</legend>
+                                    <input type="checkbox" name="Recommend"></input>
+                                    <label for="Recommend">推荐资源</label>
+                                    <input type="checkbox" name="InGarden" style="margin-left: 3px;"></input>
+                                    <label for="InGarden">药园资源</label>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div style="float: left;">
+                            <fieldset style="text-align: center;">
+                                <legend>资源图片预览</legend>
+                                <img id="resImage" src="../images/resDefaultImage.jpg" width="210px" height="160px" alt="资源图片预览" />
+                                <br />
+                                <input type="file" name="resImage" id="postResImage"/>
+                                <a class="easyui-linkbutton" iconCls="icon-upload" plain="true" href="javascript:void(0)" onclick="uploadResImage()">上传</a>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>资源描述</legend>
+                            <textarea cols='80' rows='10' id='Description' name='Description'></textarea>
+                        </fieldset>
+                    </div>
+                    <input type='hidden' name='ResID' />
+                </form>
+		    </div>
+
+		    <div region="south" border="false" style="text-align:right;padding:5px 0;">
+			    <a class="easyui-linkbutton" iconCls="icon-ok" href="javascript:void(0)" onclick="addOrSaveResource();">确定</a>
+			    <a class="easyui-linkbutton" iconCls="icon-cancel" href="javascript:void(0)" onclick="javascript:$('#addResWin').window('close');">取消</a>
+		    </div>
+	    </div>  
+    </div>
+</body>
+</html>

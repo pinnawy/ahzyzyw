@@ -42,7 +42,7 @@
                     <legend style="color:#333333;font-size:1.8em;font-weight:bold;">
                         安徽药用资源概况
                     </legend>
-                    <img alt="药园资源分布图" title="药园资源分布图" src="images/ah.png" usemap="#map" />
+                    <img alt="药苑资源分布图" title="药苑资源分布图" src="images/ah.png" usemap="#map" />
                     <map name="map" id="map">
                         <area  alt="A1" shape="poly" href="#A1" title="A1" coords="154,351,192,351,205,380,140,380">
                     </map>

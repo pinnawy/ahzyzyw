@@ -19,7 +19,7 @@ namespace Ahzyzyw.Model
         Recommend = 0x01,
 
         /// <summary>
-        /// 属于药园资源
+        /// 属于药苑资源
         /// </summary>
         InGarden = 0x02
     }

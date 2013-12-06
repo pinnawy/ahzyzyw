@@ -49,8 +49,8 @@
                 </li>
                 <li><a href="garden.aspx" id="GardenMenu" title="网上植物园"><span>网上植物园</span></a>
                     <ul class="menulevel">
-                        <li><a href="garden.aspx" title="药园概况">药园概况</a></li>
-                        <li><a href="zwyzy.aspx" title="药园医药资源">药园医药资源</a></li>
+                        <li><a href="garden.aspx" title="药苑概况">药苑概况</a></li>
+                        <li><a href="zwyzy.aspx" title="药苑医药资源">药苑医药资源</a></li>
                     </ul>
                 </li>
                 <li><a href="study.aspx" id="StudyMenu" title="药用植物学习"><span>药用植物学习</span></a>
@@ -78,7 +78,7 @@
                     <ul class="menulevel">
                         <li><a href="empty.aspx" title="种植基地规划">种植基地规划</a></li>
                         <li><a href="empty.aspx" title="GAP基地建设">GAP基地建设</a></li>
-                        <li><a href="empty.aspx" title="药园建设">药园建设</a></li>
+                        <li><a href="empty.aspx" title="药苑建设">药苑建设</a></li>
                         <li><a href="empty.aspx" title="药材种植养殖指导">药材种植养殖指导</a></li>
                         <li><a href="empty.aspx" title="药材深加工">药材深加工</a></li>
                         <li><a href="empty.aspx" title="科研项目">科研项目</a></li>
@@ -104,7 +104,7 @@
     <div id="copyright">
         <p>
             Copyright &copy;2011-2012&nbsp;<a href="http://www.ahzyzyw.com" title="安徽中医药资源网">安徽中药资源网www.ahzyzyw.com</a>
-            All Rights Reserved.<br />
+            All Rights Reserved. <script src="http://s25.cnzz.com/stat.php?id=5056781&web_id=5056781&show=pic" language="JavaScript"></script><br />
             <span>地址: </span>安徽省芜湖市乌霞山西路18号 <span>邮编: </span>241002 <span>联系人: </span>汪先生<br />
             <span>QQ: </span>59858705<span> 邮箱: </span>59858705@qq.com</p>
     </div>

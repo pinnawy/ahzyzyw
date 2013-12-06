@@ -52,7 +52,7 @@ namespace Ahzyzyw.DAL.SQLiteImpl
         {
             resource.CreateTime = DateTime.Now;
 
-            var sql = string.Format(@"INSERT INTO Resource (ResID, CnName, EnName, OtherName, CategroyID, Image, Description,State, Location, Creator, CreateTime)
+            var sql = string.Format(@"INSERT INTO Resource (ResID, CnName, EnName, OtherName, CategroyID, Image, Description, State, Location, Creator, CreateTime)
                                       VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}',{7},'{8}','{9}','{10}')"
                                      , resource.ResID, resource.CnName, resource.EnName, resource.OtherName, resource.CategroyID
                                      , resource.Image, resource.Description, (int)resource.State, resource.Location, resource.Creator

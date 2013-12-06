@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Ahzyzyw.Web.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div id="ad_list">
+   <!-- <div id="ad_list">
         <div>
             <h3>在线留言</h3>
             <p>如果您对我们的产品<br />有兴趣请联系我们</p>
@@ -18,7 +18,7 @@
             <p>
                 上海、北京、广州、<br />
                 福建、香港</p>
-        </div>
+        </div> 
         <div class="index_search">
             <form method="post" id="sitesearch" name="sitesearch" action="">
             <p>
@@ -35,8 +35,8 @@
             </p>
             </form>
         </div>
-
     </div>
+       -->
 
     <div class="clearfix">
     <div class="index-left">

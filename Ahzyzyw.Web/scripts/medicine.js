@@ -67,7 +67,7 @@ $(document).ready(function () {
                  .replace(new RegExp("{Family}", "g"), resItem.Family)
                  .replace(new RegExp("{Genus}", "g"), resItem.Genus)
                  .replace("{Description}", resItem.Description)
-                 .replace("{OtherName}", resItem.OtherName)
+                 .replace("{OtherName}", resItem.OtherName || "无")
                  .replace("{Image}", resItem.Image);
          }
 

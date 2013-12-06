@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="News.cs" />
+    <Compile Include="NewsQueryOption.cs" />
     <Compile Include="QueryOptionBase.cs" />
     <Compile Include="ResourceQueryOption.cs" />
     <Compile Include="ResourceState.cs" />

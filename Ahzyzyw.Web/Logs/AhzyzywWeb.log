@@ -1,435 +1,56 @@
-2012-01-11 11:35:57,801 404  [4] INFO  AhzyzywWebLog (null) - 
+2013-12-06 21:46:39,078 152  [42] INFO  AhzyzywWebLog (null) - 
 
 *============================================================
 Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,11:35:57,754
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 5976(0x1758)
+BeginTime: 2013/12/06,21:46:39,075
+MainApp:   C:\Program Files (x86)\Common Files\Microsoft Shared\DevServer\11.0\WebDev.WebServer40.exe
+Version:   11.0.50727.1
+ProcessID: 6172(0x181C)
 =============================================================
 
-2012-01-11 11:36:06,686 9288 [4] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 13:29:49,465 606  [20] INFO  AhzyzywWebLog (null) - 
+2013-12-06 21:47:17,103 77   [5] INFO  AhzyzywWebLog (null) - 
 
 *============================================================
 Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,13:29:49,424
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 5976(0x1758)
+BeginTime: 2013/12/06,21:47:17,100
+MainApp:   C:\Program Files (x86)\Common Files\Microsoft Shared\DevServer\11.0\WebDev.WebServer40.exe
+Version:   11.0.50727.1
+ProcessID: 7152(0x1BF0)
 =============================================================
 
-2012-01-11 13:29:56,408 7548 [22] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 13:30:19,127 30267 [19] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
-   at System.Data.SQLite.SQLiteConnectionHandle.op_Implicit(SQLiteConnectionHandle db)
-   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
-   at System.Data.SQLite.SQLite3.Reset(SQLiteStatement stmt)
-   at System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
-   at System.Data.SQLite.SQLiteDataReader.NextResult()
-   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
-   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
-   at System.Data.SQLite.SQLiteConnection.Open()
-   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.PrepareCommand(SQLiteCommand cmd, String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 73
-   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteScalar(String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 200
-   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReaderPager(Int32& recordCount, Int32 pageIndex, Int32 pageSize, String cmdText, String countText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 165
-   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReaderPager(Int32& recordCount, Int32 pageIndex, Int32 pageSize, String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 185
-   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.GetResourceList(ResourceQueryOption option, Int32& recordCount) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 42
-   at Ahzyzyw.BLL.RecourceBLL.GetResourceList(ResourceQueryOption option, Int32& recordCount) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 21
-   --- End of inner exception stack trace ---
-   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 13:30:19,171 30311 [22] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
-   at System.Data.SQLite.SQLiteConnectionHandle.op_Implicit(SQLiteConnectionHandle db)
-   at System.Data.SQLite.SQLite3.SetTimeout(Int32 nTimeoutMS)
-   at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)
-   at System.Data.SQLite.SQLiteConnection.Open()
-   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.PrepareCommand(SQLiteCommand cmd, String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 73
-   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReader(String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 159
-   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 94
-   at Ahzyzyw.BLL.RecourceBLL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 124
-   --- End of inner exception stack trace ---
-   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 13:30:19,266 30406 [18] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.InvalidOperationException: Database is not open
-   at System.Data.SQLite.SQLiteCommand.InitializeForReader()
-   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
-   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReader(String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 159
-   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 94
-   at Ahzyzyw.BLL.RecourceBLL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 124
-   --- End of inner exception stack trace ---
-   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 13:34:08,151 259291 [19] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Web.HttpRequestValidationException (0x80004005): A potentially dangerous Request.Form value was detected from the client (Description="<strong>[</strong>野菊...").
-   at System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.ValidateNameValueCollection(NameValueCollection nvc, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.get_Form()
-   at Ahzyzyw.Web.Services.Resource.UploadResourceImage(HttpContext context, String resImageKey) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 81
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 28
-2012-01-11 13:36:50,963 422103 [19] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Web.HttpRequestValidationException (0x80004005): A potentially dangerous Request.Form value was detected from the client (Description="<strong>[</strong>野菊...").
-   at System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.ValidateNameValueCollection(NameValueCollection nvc, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.get_Form()
-   at Ahzyzyw.Web.Services.Resource.UploadResourceImage(HttpContext context, String resImageKey) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 81
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 28
-2012-01-11 15:04:41,326 753  [41] INFO  AhzyzywWebLog (null) - 
+2013-12-06 21:47:19,775 2749 [11] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Source\Ahzyzyw.Web\..\DB\ahyzyw.db3
+fullPath:E:\Project\Ahzyzyw\Source\DB\ahyzyw.db3
+_ConnectionString:Data Source=E:\Project\Ahzyzyw\Source\DB\ahyzyw.db3
+2013-12-06 21:48:05,674 57   [5] INFO  AhzyzywWebLog (null) - 
 
 *============================================================
 Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,15:04:41,266
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 5976(0x1758)
+BeginTime: 2013/12/06,21:48:05,671
+MainApp:   C:\Program Files (x86)\Common Files\Microsoft Shared\DevServer\11.0\WebDev.WebServer40.exe
+Version:   11.0.50727.1
+ProcessID: 4116(0x1014)
 =============================================================
 
-2012-01-11 15:04:53,385 12812 [39] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 15:06:59,807 139234 [44] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Web.HttpRequestValidationException (0x80004005): A potentially dangerous Request.Form value was detected from the client (resource="...tion":"dsa<br />\nd","State":3...").
-   at System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.ValidateNameValueCollection(NameValueCollection nvc, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.get_Form()
-   at System.Web.HttpRequest.get_Item(String key)
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 28
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 15:14:43,698 603125 [33] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
-   at Ahzyzyw.BLL.RecourceBLL.AddResource(Resource resource) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 46
-   --- End of inner exception stack trace ---
-   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 15:19:20,459 879886 [32] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
-   at Ahzyzyw.BLL.RecourceBLL.AddResource(Resource resource) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 46
-   --- End of inner exception stack trace ---
-   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 15:29:28,741 155  [18] INFO  AhzyzywWebLog (null) - 
+2013-12-06 21:54:54,325 58   [8] INFO  AhzyzywWebLog (null) - 
 
 *============================================================
 Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,15:29:28,727
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 5976(0x1758)
+BeginTime: 2013/12/06,21:54:54,321
+MainApp:   C:\Program Files (x86)\Common Files\Microsoft Shared\DevServer\11.0\WebDev.WebServer40.exe
+Version:   11.0.50727.1
+ProcessID: 6012(0x177C)
 =============================================================
 
-2012-01-11 15:29:34,733 6146 [26] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 15:57:48,855 607  [21] INFO  AhzyzywWebLog (null) - 
+2013-12-06 21:54:59,058 4790 [7] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Source\Ahzyzyw.Web\..\DB\ahyzyw.db3
+fullPath:E:\Project\Ahzyzyw\Source\DB\ahyzyw.db3
+_ConnectionString:Data Source=E:\Project\Ahzyzyw\Source\DB\ahyzyw.db3
+2013-12-06 22:08:35,827 39   [6] INFO  AhzyzywWebLog (null) - 
 
 *============================================================
 Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,15:57:48,810
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 5976(0x1758)
-=============================================================
-
-2012-01-11 15:57:58,765 10517 [41] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 15:58:23,865 35617 [39] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.InvalidOperationException: Wrong parameters count: AddResource
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 108
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 16:00:03,247 134999 [40] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.InvalidOperationException: Wrong parameters count: AddResource
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 108
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 16:03:37,587 111  [12] INFO  AhzyzywWebLog (null) - 
-
-*============================================================
-Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,16:03:37,584
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 5976(0x1758)
-=============================================================
-
-2012-01-11 16:03:44,368 6892 [21] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 16:15:20,695 112  [20] INFO  AhzyzywWebLog (null) - 
-
-*============================================================
-Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,16:15:20,692
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 5976(0x1758)
-=============================================================
-
-2012-01-11 16:15:32,327 11743 [18] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 16:31:15,491 235  [26] INFO  AhzyzywWebLog (null) - 
-
-*============================================================
-Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,16:31:15,473
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 5976(0x1758)
-=============================================================
-
-2012-01-11 16:31:20,014 4758 [5] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 16:35:36,128 168  [40] INFO  AhzyzywWebLog (null) - 
-
-*============================================================
-Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,16:35:36,120
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 5976(0x1758)
-=============================================================
-
-2012-01-11 16:35:37,808 1848 [40] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 16:44:27,043 121  [5] INFO  AhzyzywWebLog (null) - 
-
-*============================================================
-Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,16:44:27,040
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 5976(0x1758)
-=============================================================
-
-2012-01-11 16:44:30,856 3934 [21] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 16:47:27,952 181030 [5] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at Library.HttpProcessor.FindMethods(Type type, String methodName) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 83
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 29
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 17:01:49,353 133  [10] INFO  AhzyzywWebLog (null) - 
-
-*============================================================
-Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,17:01:49,327
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 7444(0x1D14)
-=============================================================
-
-2012-01-11 17:01:57,383 8162 [8] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 17:09:46,938 99   [13] INFO  AhzyzywWebLog (null) - 
-
-*============================================================
-Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,17:09:46,934
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 7444(0x1D14)
-=============================================================
-
-2012-01-11 17:09:50,759 3919 [13] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 20:16:35,731 176  [4] INFO  AhzyzywWebLog (null) - 
-
-*============================================================
-Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,20:16:35,699
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 4332(0x10EC)
-=============================================================
-
-2012-01-11 20:16:46,206 10651 [8] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 21:21:44,766 108  [30] INFO  AhzyzywWebLog (null) - 
-
-*============================================================
-Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,21:21:44,760
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 4332(0x10EC)
-=============================================================
-
-2012-01-11 21:21:47,867 3208 [25] INFO  AhzyzywWebLog (null) - DB connString:E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\..\DB\ahyzyw.db3
-fullPath:E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-_ConnectionString:Data Source=E:\Project\Ahzyzyw\Code\DB\ahyzyw.db3
-2012-01-11 21:22:16,409 31750 [25] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
-   at System.Data.SQLite.SQLiteConnectionHandle.op_Implicit(SQLiteConnectionHandle db)
-   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
-   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
-   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
-   at System.Data.SQLite.SQLiteDataReader.NextResult()
-   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
-   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
-   at System.Data.SQLite.SQLiteConnection.Open()
-   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.PrepareCommand(SQLiteCommand cmd, String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 73
-   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteReader(String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 159
-   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 102
-   at Ahzyzyw.BLL.RecourceBLL.GetSubCategorys(String cateID) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 180
-   --- End of inner exception stack trace ---
-   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 21:39:25,068 1060409 [14] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Web.HttpRequestValidationException (0x80004005): A potentially dangerous Request.Form value was detected from the client (Description="...子10-11月成熟。<br />
-【产地分布】产皖南及大别...").
-   at System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.ValidateNameValueCollection(NameValueCollection nvc, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.get_Form()
-   at Ahzyzyw.Web.Services.Resource.UploadResourceImage(HttpContext context, String resImageKey) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 81
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 28
-2012-01-11 21:40:38,275 1133616 [12] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Web.HttpRequestValidationException (0x80004005): A potentially dangerous Request.Form value was detected from the client (Description="...子10-11月成熟。<br />
-【产地分布】产皖南及大别...").
-   at System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.ValidateNameValueCollection(NameValueCollection nvc, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.get_Form()
-   at Ahzyzyw.Web.Services.Resource.UploadResourceImage(HttpContext context, String resImageKey) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 81
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 28
-2012-01-11 21:49:14,037 1649378 [35] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
-   at Ahzyzyw.BLL.RecourceBLL.AddResource(Resource resource) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 48
-   --- End of inner exception stack trace ---
-   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 21:55:31,224 2026565 [15] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
-   at Ahzyzyw.BLL.RecourceBLL.AddResource(Resource resource) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 48
-   --- End of inner exception stack trace ---
-   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 21:57:48,453 2163794 [42] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
-   at Ahzyzyw.BLL.RecourceBLL.AddResource(Resource resource) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 48
-   --- End of inner exception stack trace ---
-   at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
-   at Library.HttpProcessor.InvokeMethod(Object instance, MethodInfo methodInfo, IDictionary`2 parameters) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 114
-   at Library.HttpProcessor.Process(Object instance, HttpContext context) in E:\Project\Ahzyzyw\Code\Common\Library\HttpProcessor.cs:line 40
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 32
-2012-01-11 21:58:43,800 2219141 [35] ERROR AhzyzywWebLog (null) - RecourceBLL::AddResource, Exception:
-System.Data.SQLite.SQLiteException (0x80004005): SQLite error
-near "http": syntax error
-   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
-   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
-   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
-   at System.Data.SQLite.SQLiteDataReader.NextResult()
-   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
-   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
-   at System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
-   at Ahzyzyw.DAL.SQLiteImpl.SQLiteHelper.ExecuteNonQuery(String cmdText, Object[] p) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\SqliteHelper.cs:line 141
-   at Ahzyzyw.DAL.SQLiteImpl.ResourceDAL.AddResource(Resource resource) in E:\Project\Ahzyzyw\Code\Ahzyzyw.DAL\SQLiteImpl\ResourceDAL.cs:line 62
-   at Ahzyzyw.BLL.RecourceBLL.AddResource(Resource resource) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 94
-2012-01-11 22:00:10,609 2305950 [35] ERROR AhzyzywWebLog (null) - RecourceBLL::AddResource, Exception:
-System.IO.FileNotFoundException: Could not find file 'E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\Temp\fdd27b1d-ff9d-4001-ad93-d5ba20b69c51.jpg'.
-File name: 'E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\Temp\fdd27b1d-ff9d-4001-ad93-d5ba20b69c51.jpg'
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at System.IO.File.ReadAllBytes(String path)
-   at Ahzyzyw.BLL.RecourceBLL.AddResource(Resource resource) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 70
-2012-01-11 22:03:39,761 2515102 [46] ERROR AhzyzywWebLog (null) - RecourceBLL::AddResource, Exception:
-System.IO.FileNotFoundException: Could not find file 'E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\Temp\fdd27b1d-ff9d-4001-ad93-d5ba20b69c51.jpg'.
-File name: 'E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\Temp\fdd27b1d-ff9d-4001-ad93-d5ba20b69c51.jpg'
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at System.IO.File.ReadAllBytes(String path)
-   at Ahzyzyw.BLL.RecourceBLL.AddResource(Resource resource) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 70
-2012-01-11 22:05:51,776 2647117 [46] ERROR AhzyzywWebLog (null) - RecourceBLL::AddResource, Exception:
-System.IO.FileNotFoundException: Could not find file 'E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\Temp\fdd27b1d-ff9d-4001-ad93-d5ba20b69c51.jpg'.
-File name: 'E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\Temp\fdd27b1d-ff9d-4001-ad93-d5ba20b69c51.jpg'
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
-   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
-   at System.IO.File.ReadAllBytes(String path)
-   at Ahzyzyw.BLL.RecourceBLL.AddResource(Resource resource) in E:\Project\Ahzyzyw\Code\Ahzyzyw.BLL\RecourceBLL.cs:line 70
-2012-01-11 22:05:56,168 2651509 [52] ERROR AhzyzywWebLog (null) - Resource Handler Exception:
-System.Web.HttpRequestValidationException (0x80004005): A potentially dangerous Request.Form value was detected from the client (Description="...成熟期在9-11月。<br />
-【产地分布】全省各地有零...").
-   at System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.ValidateNameValueCollection(NameValueCollection nvc, RequestValidationSource requestCollection)
-   at System.Web.HttpRequest.get_Form()
-   at Ahzyzyw.Web.Services.Resource.UploadResourceImage(HttpContext context, String resImageKey) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 81
-   at Ahzyzyw.Web.Services.Resource.ProcessRequest(HttpContext context) in E:\Project\Ahzyzyw\Code\Ahzyzyw.Web\services\Resource.ashx.cs:line 28
-2012-01-11 23:05:08,873 112  [22] INFO  AhzyzywWebLog (null) - 
-
-*============================================================
-Subject:   Ahzyzyw Log File
-BeginTime: 2012/01/11,23:05:08,869
-MainApp:   C:\Program Files\Common Files\Microsoft Shared\DevServer\10.0\WebDev.WebServer40.exe
-Version:   10.0.30319.1
-ProcessID: 4332(0x10EC)
+BeginTime: 2013/12/06,22:08:35,824
+MainApp:   C:\Program Files (x86)\Common Files\Microsoft Shared\DevServer\11.0\WebDev.WebServer40.exe
+Version:   11.0.50727.1
+ProcessID: 4996(0x1384)
 =============================================================
 

@@ -17,3 +17,12 @@ abbr,acronym{border:0;font-variant:normal}
 sup{vertical-align:baseline}
 sub{vertical-align:baseline}
 legend{color:#000}
+
+#garden_res ol {
+    padding-left:20px;
+    padding-bottom:20px;
+} 
+
+#garden_res li {
+list-style:decimal;
+}

@@ -16,7 +16,7 @@ var ResourceState =
     // 推荐资源
     Recommend: 0x01,
 
-    // 属于药园资源
+    // 属于药苑资源
     InGarden: 0x02
 };
 

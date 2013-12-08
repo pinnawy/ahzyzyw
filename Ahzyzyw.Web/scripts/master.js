@@ -6,9 +6,9 @@
     });
     
     var url = location.href;
-    if (url.indexOf("index.aspx") > -1) {
+    if (url.indexOf("index.aspx") > -1 || url.indexOf("news.aspx") > -1) {
         $("#IndexMenu").attr("id", "menu_selected");
-    } 
+    }
     else if (url.indexOf("medicine.aspx") > -1) {
         $("#MedicineMenu").attr("id", "menu_selected");
     }

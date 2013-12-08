@@ -19,7 +19,14 @@ namespace Ahzyzyw.DAL.Interface
         /// </summary>
         /// <param name="resID">资源ID</param>
         /// <returns>对应资源信息</returns>
-        Resource GetResource(Guid resID);
+        Resource GetResource(string resID);
+
+        /// <summary>
+        /// 按资源名称获取资源列表
+        /// </summary>
+        /// <param name="resCnName">资源中文名称</param>
+        /// <returns>资源列表</returns>
+        List<Resource> GetResourceByName(string resCnName); 
 
         /// <summary>
         /// 添加资源
@@ -38,9 +45,10 @@ namespace Ahzyzyw.DAL.Interface
         /// <summary>
         /// 编辑资源
         /// </summary>
-        /// <param name="resource">资源实体对象</param>
+        /// <param name="resId">资源ID</param>
+        /// <param name="imageName">图片名称</param>
         /// <returns>编辑结果</returns>
-        bool EditResource(Resource resource);
+        bool EditResource(string resId, string imageName);
 
         /// <summary>
         /// 获取资源分类子类别

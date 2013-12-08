@@ -39,6 +39,7 @@
                 <li><a href="index.aspx" id="IndexMenu" title="首页"><span>首页</span></a>
                     <ul class="menulevel">
                         <li><a href="ahres.aspx" title="安徽药用资源概况">安徽药用资源概况</a></li>
+                        <li><a href="news.aspx" title="新闻中心">新闻中心</a></li>
                     </ul>
                 </li>
                 <li><a href="medicine.aspx" id="MedicineMenu" title="芜湖药用植物资源"><span>芜湖药用植物资源</span></a>

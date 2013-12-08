@@ -22,6 +22,14 @@ var Medicine = {
 
 // 加载分页控件
 $(document).ready(function () {
+    if (resId) {
+        $.post("Services/Resource.ashx?", { action: 'GetResource', resID: resId, timestamp: new Date().getTime() }, function (data) {
+            var resItem = eval('(' + data + ')');
+            var resDetail = getResItemHTML(resItem);
+            showMedicineDetail(resDetail);
+        });
+    }
+
     initMenu();
     getResourceList(1);
 
@@ -61,14 +69,7 @@ $(document).ready(function () {
          var items = '';
          for (var index = 0; index < data.rows.length; index++) {
              var resItem = data.rows[index];
-             items += Medicine.ResItemTemplate
-                 .replace(new RegExp("{CnName}", "g"), resItem.CnName)
-                 .replace(new RegExp("{EnName}", "g"), resItem.EnName)
-                 .replace(new RegExp("{Family}", "g"), resItem.Family)
-                 .replace(new RegExp("{Genus}", "g"), resItem.Genus)
-                 .replace("{Description}", resItem.Description)
-                 .replace("{OtherName}", resItem.OtherName || "无")
-                 .replace("{Image}", resItem.Image);
+             items += getResItemHTML(resItem);
          }
 
          items = $(items);
@@ -101,6 +102,17 @@ $(document).ready(function () {
          pagecount: pageCount,
          buttonClickCallback: getResourceList
      });
+ }
+ 
+ function getResItemHTML(resItem) {
+   return  Medicine.ResItemTemplate
+                 .replace(new RegExp("{CnName}", "g"), resItem.CnName)
+                 .replace(new RegExp("{EnName}", "g"), resItem.EnName)
+                 .replace(new RegExp("{Family}", "g"), resItem.Family)
+                 .replace(new RegExp("{Genus}", "g"), resItem.Genus)
+                 .replace("{Description}", resItem.Description)
+                 .replace("{OtherName}", resItem.OtherName || "无")
+                 .replace("{Image}", resItem.Image);
 }
 
 function initMenu() {
@@ -129,9 +141,16 @@ function initMenu() {
 }
 
 function showMedicineDetail(e) {
+    var detailContent;
+    if (typeof e === "string") {
+        detailContent = e;
+    } else {
+        var img = e.data.img;
+        detailContent = $(img).parent().parent().parent().clone();
+    }
+   
     var itemPanel = $("#itemDetail");
-    var img = e.data.img;
-    itemPanel.find("#itemContent").html($(img).parent().parent().parent().clone());
+    itemPanel.find("#itemContent").html(detailContent);
     
     $.blockUI({
         message: itemPanel,

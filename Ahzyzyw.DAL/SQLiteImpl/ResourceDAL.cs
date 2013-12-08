@@ -8,14 +8,16 @@ using Ahzyzyw.Model;
 
 namespace Ahzyzyw.DAL.SQLiteImpl
 {
-    public class ResourceDAL : IResourceDAL
+    public class ResourceDAL : DALBase, IResourceDAL
     {
+        private const string TABLE_NAME = "Resource";
+
         public List<Resource> GetResourceList(ResourceQueryOption option, out int recordCount)
         {
-            var sql = @"SELECT R.*,
-                               (SELECT CnTitle FROM  ResourceCategroy WHERE CategroyID = substr(R.CategroyID,1,7)) AS 'Family',
-                               (SELECT CnTitle FROM  ResourceCategroy WHERE CategroyID = substr(R.CategroyID,1,10)) AS 'Genus'
-                        FROM Resource R WHERE 1=1";
+            var sql = String.Format(@"SELECT R.*,
+                               (SELECT CnTitle FROM  ResourceCategroy WHERE CategroyID = substr(R.CategroyID,1,7)) AS 'GenFamily',
+                               (SELECT CnTitle FROM  ResourceCategroy WHERE CategroyID = substr(R.CategroyID,1,10)) AS 'GenGenus'
+                        FROM {0} R WHERE 1=1", TABLE_NAME);
 
             if (!option.CategroyID.IsIgnoreQueryCondition())
             {
@@ -43,20 +45,31 @@ namespace Ahzyzyw.DAL.SQLiteImpl
             return reader.ToResourceList();
         }
 
-        public Resource GetResource(Guid resID)
+        public Resource GetResource(string resID)
         {
-            throw new NotImplementedException();
+            var sql = string.Format("SELECT * FROM {0} WHERE ResID='{1}'", TABLE_NAME, resID);
+            Debug.WriteLine(sql);
+            var reader = SQLiteHelper.ExecuteReader(sql);
+            return reader.ToResource();
+        }
+
+        public List<Resource> GetResourceByName(string resCnName)
+        {
+            var sql = string.Format("SELECT * FROM Resource WHERE CnName='{0}'", resCnName);
+            Debug.WriteLine(sql);
+            var reader = SQLiteHelper.ExecuteReader(sql);
+            return reader.ToResourceList();
         }
 
         public string AddResource(Resource resource)
         {
             resource.CreateTime = DateTime.Now;
 
-            var sql = string.Format(@"INSERT INTO Resource (ResID, CnName, EnName, OtherName, CategroyID, Image, Description, State, Location, Creator, CreateTime)
-                                      VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}',{7},'{8}','{9}','{10}')"
+            var sql = string.Format(@"INSERT INTO Resource (ResID, CnName, EnName, OtherName, CategroyID, Image, Description, State, Location, Creator, CreateTime, Family, Genus)
+                                      VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}',{7},'{8}','{9}','{10}','{11}','{12}')"
                                      , resource.ResID, resource.CnName, resource.EnName, resource.OtherName, resource.CategroyID
                                      , resource.Image, resource.Description, (int)resource.State, resource.Location, resource.Creator
-                                     , resource.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"));
+                                     , resource.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"), resource.Family, resource.Genus);
             Debug.WriteLine(sql);
 
             int rows = SQLiteHelper.ExecuteNonQuery(sql);
@@ -72,9 +85,12 @@ namespace Ahzyzyw.DAL.SQLiteImpl
             return rows == 1;
         }
 
-        public bool EditResource(Resource resource)
+        public bool EditResource(string resId, string imageName)
         {
-            throw new NotImplementedException();
+            var sql = string.Format(@"UPDATE {0} SET [Image]='{1}' WHERE ResID='{2}'", TABLE_NAME, imageName, resId);
+            Debug.WriteLine(sql);
+            int rows = SQLiteHelper.ExecuteNonQuery(sql);
+            return rows == 1;
         }
 
         public List<ResourceCategroy> GetSubCategorys(string cateID)

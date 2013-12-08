@@ -20,6 +20,11 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -280,6 +285,10 @@
     <Content Include="ckeditor\skins\v2\skin.js" />
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
+    <Content Include="images\medicen.jpg" />
+    <Content Include="images\neiye_left.png" />
+    <Content Include="images\neiye_right.png" />
+    <Content Include="newsdetail.aspx" />
     <Content Include="css\easyui-css\easyui.css" />
     <Content Include="css\easyui-css\icon.css" />
     <Content Include="css\easyui-css\icons\back.png" />
@@ -372,6 +381,7 @@
     <Content Include="images\ah.png" />
     <Content Include="images\banner03.jpg" />
     <Content Include="images\garden.jpg" />
+    <Content Include="images\gardenmap-min.gif" />
     <Content Include="images\gardenmap.gif" />
     <Content Include="images\left-garden.jpg" />
     <Content Include="images\left-medicine.jpg" />
@@ -380,6 +390,8 @@
     <Content Include="images\resDefaultImage.jpg" />
     <Content Include="index.aspx" />
     <Content Include="Logs\holdplace.txt" />
+    <Content Include="news.aspx" />
+    <Content Include="scripts\news.js" />
     <Content Include="temp\holdplace.txt" />
     <Content Include="scripts\easyui\jquery.easyui.min-1.2.5.js" />
     <Content Include="scripts\easyui\locale\easyui-lang-zh_CN.js" />
@@ -468,6 +480,13 @@
     <Compile Include="ahres.aspx.designer.cs">
       <DependentUpon>ahres.aspx</DependentUpon>
     </Compile>
+    <Compile Include="newsdetail.aspx.cs">
+      <DependentUpon>newsdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newsdetail.aspx.designer.cs">
+      <DependentUpon>newsdetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="empty.aspx.cs">
       <DependentUpon>empty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -482,12 +501,22 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="news.aspx.cs">
+      <DependentUpon>news.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="news.aspx.designer.cs">
+      <DependentUpon>news.aspx</DependentUpon>
+    </Compile>
     <Compile Include="service.aspx.cs">
       <DependentUpon>service.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="service.aspx.designer.cs">
       <DependentUpon>service.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="services\News.ashx.cs">
+      <DependentUpon>News.ashx</DependentUpon>
     </Compile>
     <Compile Include="specimen.aspx.cs">
       <DependentUpon>specimen.aspx</DependentUpon>
@@ -565,6 +594,14 @@
       <Project>{DCB8510A-82D2-494A-A3FC-FC5E14D579F6}</Project>
       <Name>Ahzyzyw.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ahzyzyw.DAL.Interface\Ahzyzyw.DAL.Interface.csproj">
+      <Project>{94cf359c-8f40-4ed0-b71d-7b92a3d79090}</Project>
+      <Name>Ahzyzyw.DAL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ahzyzyw.DAL\Ahzyzyw.DAL.csproj">
+      <Project>{832a0a68-642f-41db-8d35-8382c563b84d}</Project>
+      <Name>Ahzyzyw.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ahzyzyw.Model\Ahzyzyw.Model.csproj">
       <Project>{5DCFBEF4-0F73-4C1B-8BE0-E9292F7A3C5E}</Project>
       <Name>Ahzyzyw.Model</Name>
@@ -584,6 +621,8 @@
   <ItemGroup>
     <None Include="ckeditor\.htaccess" />
     <None Include="css\easyui-css\images\Thumbs.db" />
+    <Content Include="services\News.ashx" />
+    <None Include="Properties\PublishProfiles\Ahzyzyw.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -25,7 +25,14 @@ namespace Ahzyzyw.BLL.Interface
         /// </summary>
         /// <param name="resID">资源ID</param>
         /// <returns>对应资源信息</returns>
-        Resource GetResource(Guid resID);
+        Resource GetResource(string resID);
+
+        /// <summary>
+        /// 按资源中文名称获取资源列表
+        /// </summary>
+        /// <param name="resCnName">资源中文名称名称</param>
+        /// <returns>资源列表</returns>
+        List<Resource> GetResourceByName(string resCnName); 
 
         /// <summary>
         /// 添加资源
@@ -57,7 +64,7 @@ namespace Ahzyzyw.BLL.Interface
         /// <param name="imageBytes">图片字节数组</param>
         /// <param name="ext">图片扩展名</param>
         /// <returns>更新结果</returns>
-        bool UpdateResourceImage(Guid resID, byte[] imageBytes, string ext);
+        bool UpdateResourceImage(string resID, byte[] imageBytes, string ext);
 
         /// <summary>
         /// 编辑资源

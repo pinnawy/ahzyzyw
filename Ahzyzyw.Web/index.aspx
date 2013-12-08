@@ -76,22 +76,27 @@
         </div>
       </div>
       <div class="index-news">
-        <h2><span>新闻中心</span><a href="news.html"><img src="images/more.gif" alt="新闻中心" /></a></h2>
+        <h2><span>新闻中心</span><a href="news.aspx"><img src="images/more.gif" alt="新闻中心" /></a></h2>
         <ul>
-          <li class="clearfix"><a href="news.html" title="未来几年北美聚酯纤维需求快速增长"><img src="images/index_NewsPic.jpg" alt="未来几年北美聚酯纤维需求快速增长" width="110" height="80" /></a>
-            <h3><a href="news.html" title="未来几年北美聚酯纤维需求快速增长">未来几年北美聚酯纤维需求快...</a></h3>
-            <p>　　据英国PCI二甲苯和聚酯公司高级咨询师MichaelBermish日前表示，受包括服装、...<a href="news.html" title="未来几年北美聚酯纤维需求快速增长">[详细]</a></p>
+          <li class="clearfix"><a href="newsdetail.aspx?newsId=<%=FirstNews.NewsId %>" title="<%=FirstNews.Title %>"><img src="images/medicen.jpg" alt="<%=FirstNews.Title %>" /></a>
+            <h3><a href="newsdetail.aspx?newsId=<%=FirstNews.NewsId %>" title="<%=FirstNews.Title %>"><%=FirstNews.Title %></a></h3>
+            <p>　　<%=FirstNews.Content.Substring(0,35) %><a href="newsdetail.aspx?newsId=<%=FirstNews.NewsId %>" title="<%=FirstNews.Title %>">[详细]</a></p>
           </li>
-          <li><a href="news.html" title="江苏化工企业接受环境风险全面排查"><span>2011/6/11</span>-　江苏化工企业接受环境风险全面排查</a></li>
-          <li><a href="news.html" title="资源税飙升稀土价格面临再次上涨"><span>2011/6/11</span>-　资源税飙升稀土价格面临再次上涨</a></li>
-          <li><a href="news.html" title="煤炭煤化工机会凸显"><span>2011/6/10</span>-　煤炭煤化工机会凸显</a></li>
-          <li><a href="news.html" title="德国巴斯夫三峡库区化工项目开建在即"><span>2011/6/10</span>-　德国巴斯夫三峡库区化工项目开建在即</a></li>
+            
+            <% foreach (var news in NewsList)
+               {%>
+                    <li>
+                        <span><%=news.PublishTime.ToString("yyyy/MM/dd") %></span>
+                        <span style="float: left; white-space:nowrap;overflow:hidden;text-overflow:ellipsis; width: 240px;">
+                            <a href="newsdetail.aspx?newsId=<%=news.NewsId %>" title="<%=news.Title %>">-　<%=news.Title %></a>
+                        </span>
+                    </li> 
+              <% } %>
         </ul>
       </div>
       <div class="index-about">
-        <h2><span>关于我们</span><a href="single.html"><img src="images/more.gif" alt="关于我们" /></a></h2>
-        <p><img src="images/index_AboutPic.jpg" alt="关于我们" width="145" height="181" /><a href="single.html" title="关于我们">　　上海网聚实业发展有限公司是以无机化工、有机化工、精细化工、香精香料、食品添加剂、医药原料及中间体等经营、销售为一体的高科技化工企业。公司位于上海市商业中心,交通十分便捷。<br />
-          ...</a></p>
+        <h2><span>药苑简介</span><a href="garden.aspx"><img src="images/more.gif" alt="药苑简介" /></a></h2>
+        <p><img src="images/gardenmap-min.gif" alt="药苑简介" width="145" height="181" /><a href="garden.aspx" title="药苑简介">　　本药苑始建于2006年，占地13亩，共投入资金130余万元。整个药苑的设计造型是仿太极八卦图，寓意中医药历史源远流长。为了丰富园区八卦景观和适应中草药生长，在八卦之内还建有凉亭、长廊（藤本植物区）和环卦水渠（水生植物区）；在八卦之外，还设立了荫棚（阴生植物区）和暖房（喜温植物区），这些巧妙设计...<br /></a></p>
       </div>
       <div class="index-products">
         <h2><span>中药材展示</span><a href="medicine.aspx"><img src="images/more.gif" alt="产品展示" /></a></h2>

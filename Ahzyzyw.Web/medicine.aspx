@@ -14,6 +14,10 @@
         #itemContent li div.img {text-align:center;}
         #itemContent li p span{font-weight:bold;}
     </style>
+    
+    <script type="text/javascript">
+        var resId = '<%=ResID%>';
+    </script>
 </asp:Content>
 
 <asp:Content ID="MedicineContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -62,11 +66,11 @@
     </div>
 
      <div id="itemDetail">
-        <div style="text-align:right;"><a style="font-size:16;padding-right:10px;" onclick="$.unblockUI()">X</a></div>
+        <div style="text-align:right;cursor: default;"><a style="font-size:16px;padding-right:10px;" onclick="$.unblockUI()">X</a></div>
         <div id="itemContent"  style="text-align:left;padding:3px;">
         </div>
         <div style="padding-top: 5px;">
-            <a onclick="$.unblockUI()">关闭</a>
+            <a style="cursor:default;" onclick="$.unblockUI()">关闭</a>
         </div>
      </div>
 </asp:Content>

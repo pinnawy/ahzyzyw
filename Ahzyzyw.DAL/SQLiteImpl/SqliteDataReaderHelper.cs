@@ -11,6 +11,62 @@ namespace Ahzyzyw.DAL.SQLiteImpl
     /// </summary>
     public static class SqliteDataReaderHelper
     {
+        public static News ToNews(this SQLiteDataReader reader)
+        {
+            if(reader.Read())
+            {
+                News news = new News();
+                news.NewsId = SafeRead<Guid>(reader, "ID").ToString();
+                news.PublishTime = SafeRead<DateTime>(reader, "PublishTime");
+                news.CreateTime = SafeRead<DateTime>(reader, "PublishTime");
+                news.Title = SafeRead<string>(reader, "Title");
+                news.Content = SafeRead<string>(reader, "Content");
+                return news;
+            }
+
+            return null;
+        }
+
+        public static List<News> ToNewsList(this SQLiteDataReader reader)
+        {
+            List<News> newsList = new List<News>();
+            while (reader.Read())
+            {
+                News news = new News();
+                news.NewsId = SafeRead<Guid>(reader, "ID").ToString();
+                news.PublishTime = SafeRead<DateTime>(reader, "PublishTime");
+                news.CreateTime = SafeRead<DateTime>(reader, "PublishTime");
+                news.Title = SafeRead<string>(reader, "Title");
+                newsList.Add(news);
+            }
+
+            return newsList;
+        }
+
+        public static Resource ToResource(this SQLiteDataReader reader)
+        {
+            if (reader.Read())
+            {
+                Resource resource = new Resource();
+                resource.ResID = SafeRead<Guid>(reader, "ResID").ToString();
+                resource.CnName = SafeRead<string>(reader, "CnName");
+                resource.EnName = SafeRead<string>(reader, "EnName");
+                resource.OtherName = SafeRead<string>(reader, "OtherName");
+                resource.CategroyID = SafeRead<string>(reader, "CategroyID");
+                resource.Description = SafeRead(reader, "Description", "暂无简介");
+                resource.State = (ResourceState)SafeRead<long>(reader, "State");
+                resource.CreateTime = SafeRead<DateTime>(reader, "CreateTime");
+                resource.Creator = SafeRead(reader, "Creator", "admin");
+                resource.Location = SafeRead<string>(reader, "Location");
+                resource.Image = SafeRead<string>(reader, "Image");
+                resource.Family = SafeRead(reader, "Family", SafeRead(reader, "GenFamily", string.Empty));
+                resource.Genus = SafeRead(reader, "Genus", SafeRead(reader, "GenGenus", string.Empty));
+                return resource;
+            }
+
+            return null;
+        }
+
         public static List<Resource> ToResourceList(this SQLiteDataReader reader)
         {
             List<Resource> reslist = new List<Resource>();
@@ -28,8 +84,8 @@ namespace Ahzyzyw.DAL.SQLiteImpl
                 resource.Creator = SafeRead(reader, "Creator", "admin");
                 resource.Location = SafeRead<string>(reader, "Location");
                 resource.Image = SafeRead<string>(reader, "Image");
-                resource.Family = SafeRead(reader, "Family", string.Empty);
-                resource.Genus = SafeRead(reader, "Genus", string.Empty);
+                resource.Family = SafeRead(reader, "Family", SafeRead(reader, "GenFamily", string.Empty));
+                resource.Genus = SafeRead(reader, "Genus", SafeRead(reader, "GenGenus", string.Empty));
                 reslist.Add(resource);
             }
 

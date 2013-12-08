@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 body,button,input,select,textarea{color:#333;font:12px/1.5 Tahoma,Helvetica,Arial,"\5b8b\4f53"}
 a:link,a:visited,a:active{color:#333;text-decoration:none}
@@ -158,6 +158,20 @@ body{background:url(../images/body_bg.jpg) repeat-x top}
 #medicine_items ul li a{background:#FFF;display: inline-block; border:#e5e5e5 1px solid;padding: 5px;}
 #medicine_items ul li a:hover{background:#cbe7ff;border:#1181d1 1px solid}
 #medicine_items ul li p span{ font-weight: bold;}
+#garden_res ol {
+    padding-left:20px;
+    padding-bottom:20px;
+} 
 
+#garden_res li {
+list-style:decimal;
+}
+#garden_res a:hover {
+    color: #a5e5e5;
+}
+#garden_res a {
+    cursor: pointer;
+    text-decoration:underline;
+}
 .ellipsis {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
 #copyright{background:#e5f2f9 url(../images/foot_bg.jpg) repeat-x top;min-width:1000px;padding:20px 0px 10px 0px;line-height:21px;text-align:center}

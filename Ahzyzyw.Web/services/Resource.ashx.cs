@@ -98,8 +98,7 @@ namespace Ahzyzyw.Web.Services
             // 修改资源图片
             try
             {
-                Guid resID = new Guid(resIdStr);
-                bool result = _resourceBLL.UpdateResourceImage(resID, imageByteArr, extension);
+                bool result = _resourceBLL.UpdateResourceImage(resIdStr, imageByteArr, extension);
                 if (result)
                 {
                     return "{success:true, msg:'资源图片修改成功' }";

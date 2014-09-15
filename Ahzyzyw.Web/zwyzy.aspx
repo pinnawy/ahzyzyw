@@ -1022,9 +1022,18 @@
         </div>
     </div>
 
+    <div id="itemDetail">
+        <div style="text-align: right; cursor: default;"><a style="font-size: 16px; padding-right: 10px;" onclick="$.unblockUI()">X</a></div>
+        <div id="itemContent" style="text-align: left; padding: 3px;">
+        </div>
+        <div style="padding-top: 5px;">
+            <a style="cursor: default;" onclick="$.unblockUI()">关闭</a>
+        </div>
+    </div>
 
     <script type="text/javascript">
-        window.onscroll = function() {
+
+        window.onscroll = function () {
             var top = $(document).scrollTop();
             if (top > 350) {
                 $("#grrdenMapPanel").css("margin-top", ($(document).scrollTop() - 350) + 'px');
@@ -1034,8 +1043,66 @@
         };
 
         $("#garden_res a").click(function () {
-            window.location.href = "medicine.aspx?resId=" + $(this).attr('resId');
+            var resId = $(this).attr('resId');
+            $.post("Services/Resource.ashx?", { action: 'GetResource', resID: resId, timestamp: new Date().getTime() }, function (data) {
+                var resItem = eval('(' + data + ')');
+                var resDetail = getResItemHTML(resItem);
+                showMedicineDetail(resDetail);
+            });
+
+            // window.location.href = "medicine.aspx?resId=" + );
         });
+
+        function showMedicineDetail(e) {
+            var detailContent;
+            if (typeof e === "string") {
+                detailContent = e;
+            } else {
+                var img = e.data.img;
+                detailContent = $(img).parent().parent().parent().clone();
+            }
+
+            var itemPanel = $("#itemDetail");
+            itemPanel.find("#itemContent").html(detailContent);
+
+            $.blockUI({
+                message: itemPanel,
+                css: {
+                    top: ($(window).height() - itemPanel.height()) / 2 - 50 + 'px',
+                    left: ($(window).width() - itemPanel.width()) / 2 + 'px',
+                    width: '600px',
+                    fadeIn: 700,
+                    fadeOut: 700,
+                    cursor: 'normal'
+                },
+                overlayCSS: {
+                    cursor: 'normal'
+                }
+            });
+
+            $('.blockOverlay').click($.unblockUI);
+        }
+        
+        function getResItemHTML(resItem) {
+
+            var resItemTemplate = '<li> \
+                            <h3 class="title ellipsis" title="{CnName}{EnName}（{Family}{Genus}）">{CnName}{EnName}（{Family}{Genus}）</h3> \
+                            <div class="img">\
+                                <a title="{CnName}"><img width=300 height=215 src="{Image}" alt="{CnName}" /></a> \
+                            </div>\
+                            <p><span>【别名】</span>{OtherName}</p>\
+                            <p>{Description}</p> \
+                        </li>';
+            
+            return resItemTemplate
+                          .replace(new RegExp("{CnName}", "g"), resItem.CnName)
+                          .replace(new RegExp("{EnName}", "g"), resItem.EnName)
+                          .replace(new RegExp("{Family}", "g"), resItem.Family)
+                          .replace(new RegExp("{Genus}", "g"), resItem.Genus)
+                          .replace("{Description}", resItem.Description)
+                          .replace("{OtherName}", resItem.OtherName || "无")
+                          .replace("{Image}", resItem.Image);
+        }
     </script>
 
 </asp:Content>

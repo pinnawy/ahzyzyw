@@ -109,6 +109,11 @@ namespace Ahzyzyw.BLL
             }
         }
 
+        public bool UpdateResource(Resource resource)
+        {
+            return _resourceDAL.UpdateResource(resource);
+        }
+
         public bool DeleteResource(Guid resID, string imageName)
         {
             bool result = _resourceDAL.DeleteResource(resID);

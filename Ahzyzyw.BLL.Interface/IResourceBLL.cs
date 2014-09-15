@@ -42,6 +42,13 @@ namespace Ahzyzyw.BLL.Interface
         string AddResource(Resource resource);
 
         /// <summary>
+        /// 更新资源
+        /// </summary>
+        /// <param name="resource">资源实体对象</param>
+        /// <returns></returns>
+        bool UpdateResource(Resource resource);
+
+        /// <summary>
         /// 删除资源
         /// </summary>
         /// <param name="resID">资源ID</param>

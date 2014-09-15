@@ -13,7 +13,7 @@ var Medicine = {
     ResItemTemplate: '<li> \
                             <h3 class="title ellipsis" title="{CnName}{EnName}（{Family}{Genus}）">{CnName}{EnName}（{Family}{Genus}）</h3> \
                             <div class="img">\
-                                <a title="{CnName}"><img src="{Image}" alt="{CnName}" /></a> \
+                                <a title="{CnName}"><img width=300 height=215 src="{Image}" alt="{CnName}" /></a> \
                             </div>\
                             <p><span>【别名】</span>{OtherName}</p>\
                             <p>{Description}</p> \
@@ -22,14 +22,7 @@ var Medicine = {
 
 // 加载分页控件
 $(document).ready(function () {
-    if (resId) {
-        $.post("Services/Resource.ashx?", { action: 'GetResource', resID: resId, timestamp: new Date().getTime() }, function (data) {
-            var resItem = eval('(' + data + ')');
-            var resDetail = getResItemHTML(resItem);
-            showMedicineDetail(resDetail);
-        });
-    }
-
+    
     initMenu();
     getResourceList(1);
 
@@ -155,7 +148,7 @@ function showMedicineDetail(e) {
     $.blockUI({
         message: itemPanel,
         css: {
-            top: ($(window).height() - itemPanel.height()) / 2 + 'px',
+            top: ($(window).height() - itemPanel.height()) / 2 - 50 + 'px',
             left: ($(window).width() - itemPanel.width()) / 2 + 'px',
             width: '600px',
             fadeIn: 700,

@@ -163,6 +163,11 @@ body{background:url(../images/body_bg.jpg) repeat-x top}
     padding-bottom:20px;
 } 
 
+#itemDetail {display:none; width:600px;}
+#itemContent li h3{text-align:center;}
+#itemContent li div.img {text-align:center;}
+#itemContent li p span{font-weight:bold;}
+
 #garden_res li {
 list-style:decimal;
 }

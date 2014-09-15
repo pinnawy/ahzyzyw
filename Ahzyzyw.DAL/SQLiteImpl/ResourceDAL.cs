@@ -77,6 +77,19 @@ namespace Ahzyzyw.DAL.SQLiteImpl
             return rows == 1 ? resource.ResID : string.Empty;
         }
 
+        public bool UpdateResource(Resource resource)
+        {
+            var sql = string.Format(@"UPDATE {0} 
+                                      SET CnName='{1}', EnName='{2}', OtherName='{3}', Description='{4}'
+                                      WHERE ResID='{5}'"
+                                     , TABLE_NAME, resource.CnName, resource.EnName, resource.OtherName, resource.Description, resource.ResID);
+            Debug.WriteLine(sql);
+
+            int rows = SQLiteHelper.ExecuteNonQuery(sql);
+
+            return rows == 1;
+        }
+
         public bool DeleteResource(Guid resID)
         {
             var sql = string.Format(@"DELETE FROM Resource WHERE ResID='{0}'", resID);

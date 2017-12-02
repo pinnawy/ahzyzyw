@@ -20,27 +20,27 @@ namespace ResourceItemRead
             Regex otherNameRegex = new Regex(@"【别    名】(?<OtherName>.*)");
             var lines = File.ReadAllLines(@"C:\Users\Taly\Desktop\items.txt");
 
-            List<ResourceCategroy> categoryList = new List<ResourceCategroy>();
+            List<ResourceCategory> categoryList = new List<ResourceCategory>();
             List<Resource> resourceList = new List<Resource>();
 
             int itemCount = 0;
 
             StringBuilder resourceDetail = new StringBuilder();
             Resource resource = null;
-            ResourceCategroy resourceCategroy= null;
+            ResourceCategory resourceCategory= null;
             foreach (var line in lines)
             {
                 if (categoryRegex.IsMatch(line))
                 {
                     itemCount++;
                     var groups = categoryRegex.Match(line).Groups;
-                    resourceCategroy = new ResourceCategroy
+                    resourceCategory = new ResourceCategory
                     {
                         CnTitle = groups["CnName"].ToString().Trim(),
                         EnTitle = groups["EnName"].ToString().Trim()
 
                     };
-                    categoryList.Add(resourceCategroy);
+                    categoryList.Add(resourceCategory);
                     Console.WriteLine("{0}\t{1}\t\t{2}", line, groups["CnName"], groups["EnName"]);
                 }
                 else if (resourceRegex.IsMatch(line))
@@ -54,7 +54,7 @@ namespace ResourceItemRead
                     var groups = resourceRegex.Match(line).Groups;
                     resource.CnName = groups["CnName"].ToString().Trim();
                     resource.EnName = groups["EnName"].ToString().Trim();
-                    resource.Family = resourceCategroy.CnTitle;
+                    resource.Family = resourceCategory.CnTitle;
                     resource.Genus = groups["shu"].ToString().Trim();
                     resource.Image = "";
                     //Console.WriteLine("{0}.{1}\t{2}\t{3}", groups["No"], groups["CnName"], groups["EnName"], groups["shu"]);

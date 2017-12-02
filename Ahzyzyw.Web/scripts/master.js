@@ -12,6 +12,9 @@
     else if (url.indexOf("medicine.aspx") > -1) {
         $("#MedicineMenu").attr("id", "menu_selected");
     }
+    else if (url.indexOf("digital_specimen.aspx") > -1) {
+        $("#DigitalSpecimenMenu").attr("id", "menu_selected");
+    }
     else if (url.indexOf("garden") > -1) {
         $("#GardenMenu").attr("id", "menu_selected");
     }

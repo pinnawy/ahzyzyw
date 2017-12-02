@@ -135,10 +135,10 @@ $(function () {
                 for (var i = 0; i < data.length; i++) {
                     var cate = data[i];
                     var node = {
-                        "id": cate.CategroyID,
+                        "id": cate.CategoryID,
                         "text": cate.CnTitle,
                         "attributes": {
-                            "url": cateUrl + "&cateID=" + cate.CategroyID
+                            "url": cateUrl + "&cateID=" + cate.CategoryID
                         }
                     };
 
@@ -184,10 +184,10 @@ $(function () {
                 for (var i = 0; i < data.length; i++) {
                     var cate = data[i];
                     var node = {
-                        "id": cate.CategroyID,
+                        "id": cate.CategoryID,
                         "text": cate.CnTitle + (cate.EnTitle ? '(' + cate.EnTitle + ')' : ''),
                         "attributes": {
-                            "url": cateUrl + "&cateID=" + cate.CategroyID,
+                            "url": cateUrl + "&cateID=" + cate.CategoryID,
                             cate: cate
                         }
                     };
@@ -291,7 +291,7 @@ function addOrSaveResource() {
         return;
     }
 
-    if ($.trim(resForm.CategroyID.value) === "") {
+    if ($.trim(resForm.CategoryID.value) === "") {
         $.messager.alert('提示', '资源分类不能为空');
         return;
     }
@@ -312,7 +312,7 @@ function addOrSaveResource() {
         CnName: escape(resForm.CnName.value),
         EnName: escape(resForm.EnName.value),
         OtherName: escape(resForm.OtherName.value),
-        CategroyID: escape(resForm.CategroyID.value),
+        CategoryID: escape(resForm.CategoryID.value),
         Description: escape(des),
         State: state,
         Image: $("#resImage").attr('src')

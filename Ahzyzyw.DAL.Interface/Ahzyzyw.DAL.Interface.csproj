@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="INewsDAL.cs" />
+    <Compile Include="IDigitalResourceDAL.cs" />
     <Compile Include="IResourceDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

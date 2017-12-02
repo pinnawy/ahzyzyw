@@ -25,6 +25,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -288,6 +289,7 @@
     <Content Include="images\medicen.jpg" />
     <Content Include="images\neiye_left.png" />
     <Content Include="images\neiye_right.png" />
+    <Content Include="digital_specimen.aspx" />
     <Content Include="newsdetail.aspx" />
     <Content Include="css\easyui-css\easyui.css" />
     <Content Include="css\easyui-css\icon.css" />
@@ -391,6 +393,7 @@
     <Content Include="index.aspx" />
     <Content Include="Logs\holdplace.txt" />
     <Content Include="news.aspx" />
+    <Content Include="scripts\digital.js" />
     <Content Include="scripts\news.js" />
     <Content Include="temp\holdplace.txt" />
     <Content Include="scripts\easyui\jquery.easyui.min-1.2.5.js" />
@@ -480,6 +483,13 @@
     <Compile Include="ahres.aspx.designer.cs">
       <DependentUpon>ahres.aspx</DependentUpon>
     </Compile>
+    <Compile Include="digital_specimen.aspx.cs">
+      <DependentUpon>digital_specimen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="digital_specimen.aspx.designer.cs">
+      <DependentUpon>digital_specimen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="newsdetail.aspx.cs">
       <DependentUpon>newsdetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -517,6 +527,9 @@
     </Compile>
     <Compile Include="services\News.ashx.cs">
       <DependentUpon>News.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="services\DigitalResource.ashx.cs">
+      <DependentUpon>DigitalResource.ashx</DependentUpon>
     </Compile>
     <Compile Include="specimen.aspx.cs">
       <DependentUpon>specimen.aspx</DependentUpon>
@@ -623,6 +636,12 @@
     <None Include="css\easyui-css\images\Thumbs.db" />
     <Content Include="services\News.ashx" />
     <None Include="Properties\PublishProfiles\Ahzyzyw.pubxml" />
+    <Content Include="services\DigitalResource.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\digital\fake\" />
+    <Folder Include="images\digital\medicien\" />
+    <Folder Include="images\digital\plant\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

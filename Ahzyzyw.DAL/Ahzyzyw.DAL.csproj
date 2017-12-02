@@ -51,6 +51,7 @@
     <Compile Include="DALBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLiteImpl\NewsDAL.cs" />
+    <Compile Include="SQLiteImpl\DigitalResourceDAL.cs" />
     <Compile Include="SQLiteImpl\ResourceDAL.cs" />
     <Compile Include="SQLiteImpl\SqliteDataReaderHelper.cs" />
     <Compile Include="SQLiteImpl\SqliteHelper.cs" />

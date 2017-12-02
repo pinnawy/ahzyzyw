@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AddResource.cs" />
     <Compile Include="ConnectResource.cs" />
+    <Compile Include="CreateDigitalResource.cs" />
     <Compile Include="UpdateResource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

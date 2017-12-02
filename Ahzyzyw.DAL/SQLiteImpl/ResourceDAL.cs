@@ -15,13 +15,13 @@ namespace Ahzyzyw.DAL.SQLiteImpl
         public List<Resource> GetResourceList(ResourceQueryOption option, out int recordCount)
         {
             var sql = String.Format(@"SELECT R.*,
-                               (SELECT CnTitle FROM  ResourceCategroy WHERE CategroyID = substr(R.CategroyID,1,7)) AS 'GenFamily',
-                               (SELECT CnTitle FROM  ResourceCategroy WHERE CategroyID = substr(R.CategroyID,1,10)) AS 'GenGenus'
+                               (SELECT CnTitle FROM  ResourceCategory WHERE CategoryID = substr(R.CategoryID,1,7)) AS 'GenFamily',
+                               (SELECT CnTitle FROM  ResourceCategory WHERE CategoryID = substr(R.CategoryID,1,10)) AS 'GenGenus'
                         FROM {0} R WHERE 1=1", TABLE_NAME);
 
-            if (!option.CategroyID.IsIgnoreQueryCondition())
+            if (!option.CategoryID.IsIgnoreQueryCondition())
             {
-                sql = string.Format("{0} AND CategroyID LIKE '{1}%'", sql, option.CategroyID);
+                sql = string.Format("{0} AND CategoryID LIKE '{1}%'", sql, option.CategoryID);
             }
 
             if (!option.QueryKeyWord.IsIgnoreQueryCondition())
@@ -45,6 +45,8 @@ namespace Ahzyzyw.DAL.SQLiteImpl
             return reader.ToResourceList();
         }
 
+
+
         public Resource GetResource(string resID)
         {
             var sql = string.Format("SELECT * FROM {0} WHERE ResID='{1}'", TABLE_NAME, resID);
@@ -65,9 +67,9 @@ namespace Ahzyzyw.DAL.SQLiteImpl
         {
             resource.CreateTime = DateTime.Now;
 
-            var sql = string.Format(@"INSERT INTO Resource (ResID, CnName, EnName, OtherName, CategroyID, Image, Description, State, Location, Creator, CreateTime, Family, Genus)
+            var sql = string.Format(@"INSERT INTO Resource (ResID, CnName, EnName, OtherName, CategoryID, Image, Description, State, Location, Creator, CreateTime, Family, Genus)
                                       VALUES('{0}','{1}','{2}','{3}','{4}','{5}', '{6}',{7},'{8}','{9}','{10}','{11}','{12}')"
-                                     , resource.ResID, resource.CnName, resource.EnName, resource.OtherName, resource.CategroyID
+                                     , resource.ResID, resource.CnName, resource.EnName, resource.OtherName, resource.CategoryID
                                      , resource.Image, resource.Description, (int)resource.State, resource.Location, resource.Creator
                                      , resource.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"), resource.Family, resource.Genus);
             Debug.WriteLine(sql);
@@ -76,6 +78,7 @@ namespace Ahzyzyw.DAL.SQLiteImpl
 
             return rows == 1 ? resource.ResID : string.Empty;
         }
+
 
         public bool UpdateResource(Resource resource)
         {
@@ -106,7 +109,7 @@ namespace Ahzyzyw.DAL.SQLiteImpl
             return rows == 1;
         }
 
-        public List<ResourceCategroy> GetSubCategorys(string cateID)
+        public List<ResourceCategory> GetSubCategorys(string cateID)
         {
             FixParentCateID(ref cateID);
 
@@ -125,14 +128,14 @@ namespace Ahzyzyw.DAL.SQLiteImpl
                     break;
             }
             var sql = string.Format(@"SELECT C1.*, 
-                                     (SELECT COUNT(1) - 1 FROM ResourceCategroy C2 WHERE C2.CategroyID LIKE C1.CategroyID || '%') AS SubCategroyCount
-                                     FROM ResourceCategroy C1 WHERE C1.CategroyID LIKE '{0}'", searchPattern);
+                                     (SELECT COUNT(1) - 1 FROM ResourceCategory C2 WHERE C2.CategoryID LIKE C1.CategoryID || '%') AS SubCategoryCount
+                                     FROM ResourceCategory C1 WHERE C1.CategoryID LIKE '{0}'", searchPattern);
             Debug.WriteLine(sql);
             var reader = SQLiteHelper.ExecuteReader(sql);
-            return reader.ResourceCategroyList();
+            return reader.ResourceCategoryList();
         }
 
-        public string CreateCategory(ResourceCategroy cate, string parentCateID)
+        public string CreateCategory(ResourceCategory cate, string parentCateID)
         {
             try
             {
@@ -140,9 +143,9 @@ namespace Ahzyzyw.DAL.SQLiteImpl
 
                 var subCateList = GetSubCategorys(parentCateID);
                 int currentCate = 1;
-                foreach (var categroy in subCateList)
+                foreach (var Category in subCateList)
                 {
-                    var subCateID = int.Parse(categroy.CategroyID.RightSubstring(3));
+                    var subCateID = int.Parse(Category.CategoryID.RightSubstring(3));
                     if (subCateID > currentCate)
                     {
                         break;
@@ -152,7 +155,7 @@ namespace Ahzyzyw.DAL.SQLiteImpl
                 }
 
                 var gategroyId = parentCateID + currentCate.ToString("d3");
-                var sql = string.Format(@"INSERT INTO ResourceCategroy (CategroyID, CnTitle, EnTitle, CreateTime)
+                var sql = string.Format(@"INSERT INTO ResourceCategory (CategoryID, CnTitle, EnTitle, CreateTime)
                             VALUES('{0}','{1}','{2}','{3}')", gategroyId, cate.CnTitle, cate.EnTitle, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 Debug.WriteLine(sql);
                 int rows = SQLiteHelper.ExecuteNonQuery(sql);
@@ -176,10 +179,11 @@ namespace Ahzyzyw.DAL.SQLiteImpl
 
         public bool DeleteCategory(string cateID)
         {
-            var sql = string.Format(@"DELETE FROM ResourceCategroy WHERE CategroyID='{0}'", cateID);
+            var sql = string.Format(@"DELETE FROM ResourceCategory WHERE CategoryID='{0}'", cateID);
             Debug.WriteLine(sql);
             int rows = SQLiteHelper.ExecuteNonQuery(sql);
             return rows == 1;
         }
+
     }
 }

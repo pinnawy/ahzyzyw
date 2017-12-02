@@ -6,18 +6,18 @@ namespace Ahzyzyw.Model
     /// <summary>
     /// 资源分类
     /// </summary>
-    public class ResourceCategroy
+    public class ResourceCategory
     {
-        public ResourceCategroy()
+        public ResourceCategory()
         {
-            SubCategorys = new List<ResourceCategroy>();
+            SubCategorys = new List<ResourceCategory>();
         }
 
         /// <summary>
         /// 资源分类编号
         /// 编号规则详见数据库设计文档
         /// </summary>
-        public string CategroyID { get; set; }
+        public string CategoryID { get; set; }
 
         /// <summary>
         /// 中文名称
@@ -37,7 +37,7 @@ namespace Ahzyzyw.Model
         /// <summary>
         /// 子分类
         /// </summary>
-        public List<ResourceCategroy> SubCategorys { get; set; }
+        public List<ResourceCategory> SubCategorys { get; set; }
 
         /// <summary>
         /// 是否有子分类

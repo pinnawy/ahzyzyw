@@ -85,13 +85,13 @@ namespace Ahzyzyw.BLL.Interface
         /// </summary>
         /// <param name="cateID">分类ID（1级分类穿空即可）</param>
         /// <returns>对应分类的子类别</returns>
-        List<ResourceCategroy> GetSubCategorys(string cateID);
+        List<ResourceCategory> GetSubCategorys(string cateID);
 
         /// <summary>
         /// 获取所有资源分类
         /// </summary>
         /// <returns>全部资源分类列表</returns>
-        List<ResourceCategroy> GetAllCategorys();
+        List<ResourceCategory> GetAllCategorys();
 
         /// <summary>
         /// 创建资源分类
@@ -99,7 +99,7 @@ namespace Ahzyzyw.BLL.Interface
         /// <param name="cate">资源分类对象</param>
         /// <param name="parentCateID">父类别ID</param>
         /// <returns>新建资源分类ID</returns>
-        string CreateCategory(ResourceCategroy cate, string parentCateID);
+        string CreateCategory(ResourceCategory cate, string parentCateID);
 
         /// <summary>
         /// 删除资源分类

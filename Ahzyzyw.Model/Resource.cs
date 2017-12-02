@@ -47,7 +47,7 @@ namespace Ahzyzyw.Model
         /// <summary>
         /// 资源分类编号
         /// </summary>
-        public string CategroyID
+        public string CategoryID
         {
             get;
             set;

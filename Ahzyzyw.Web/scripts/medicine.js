@@ -11,9 +11,9 @@ var Medicine = {
 
     // 植物资源模板
     ResItemTemplate: '<li> \
-                            <h3 class="title ellipsis" title="{CnName}{EnName}（{Family}{Genus}）">{CnName}{EnName}（{Family}{Genus}）</h3> \
+                            <h3 class="title ellipsis" title="{Title}">{CnName}{EnName}（{Family}{Genus}）</h3> \
                             <div class="img">\
-                                <a title="{CnName}"><img width=300 height=215 src="{Image}" alt="{CnName}" /></a> \
+                                <a title="{Title}"><img width=300 height=215 src="{Image}" alt="{Title}" /></a> \
                             </div>\
                             <p><span>【别名】</span>{OtherName}</p>\
                             <p>{Description}</p> \
@@ -44,28 +44,28 @@ $(document).ready(function () {
      /// <param name='sortName'>排序名称</param>
      /// <param name='sortDir'>排序方向</param>
      /// <param name='queryKeyWord'>查询关键字(按资源名称查询)</param>
-     /// <param name='categroyID'>资源分类</param>
+     /// <param name='CategoryID'>资源分类</param>
      
-     var queryKeyWord = escape($('#query').val());
-     var categroyID = $('#menu li a[class=selected]').attr('cateID');
+     var queryKeyWord = escape($.trim($('#query').val()));
+     var CategoryID = $('#menu li a[class=selected]').attr('cateID');
      // 查询参数
      var option = {
-         PageNumber: pageNumber,
+         PageNumber: queryKeyWord !== '' ? 1 : pageNumber,
          PageSize: Medicine.PageSize,
          QueryKeyWord: queryKeyWord,
-         CategroyID: categroyID
+         CategoryID: CategoryID
      };
      
      // 请求资源列表数据
      $.post("Services/Resource.ashx?", { action: 'GetResourceList', option: $.toJSON(option), recordCount: 0, timestamp: new Date().getTime() }, function (data) {
          data = eval('(' + data + ')');
-         var items = '';
+         var itemArr = [];
          for (var index = 0; index < data.rows.length; index++) {
              var resItem = data.rows[index];
-             items += getResItemHTML(resItem);
+             itemArr.push(getResItemHTML(resItem, queryKeyWord));
          }
 
-         items = $(items);
+         items = $(itemArr.join(''));
          items.find("img").each(function () {
              $(this).on("click", { img: this }, showMedicineDetail);
          });
@@ -97,15 +97,27 @@ $(document).ready(function () {
      });
  }
  
- function getResItemHTML(resItem) {
-   return  Medicine.ResItemTemplate
-                 .replace(new RegExp("{CnName}", "g"), resItem.CnName)
-                 .replace(new RegExp("{EnName}", "g"), resItem.EnName)
-                 .replace(new RegExp("{Family}", "g"), resItem.Family)
-                 .replace(new RegExp("{Genus}", "g"), resItem.Genus)
-                 .replace("{Description}", resItem.Description)
-                 .replace("{OtherName}", resItem.OtherName || "无")
-                 .replace("{Image}", resItem.Image);
+ function getResItemHTML(resItem, keyword) {
+     /// <summary>获取资源条目的HTML字符串</summary>
+     keyword = unescape(keyword);
+     var renderHtml = Medicine.ResItemTemplate
+                   .replace(new RegExp("{CnName}", "g"), resItem.CnName)
+                   .replace(new RegExp("{EnName}", "g"), resItem.EnName)
+                   .replace(new RegExp("{Family}", "g"), resItem.Family)
+                   .replace(new RegExp("{Genus}", "g"), resItem.Genus)
+                   .replace("{Description}", resItem.Description)
+                   .replace("{OtherName}", resItem.OtherName || "无")
+                   .replace("{Image}", resItem.Image);
+
+     if (keyword != '') {
+         var reg = new RegExp(keyword, "gm");
+         
+         renderHtml = renderHtml.replace(reg, '<span style="color:red;">' + keyword + '</span>');
+     }
+
+     renderHtml = renderHtml.replace(new RegExp("{Title}","g"), [resItem.CnName, ' ', resItem.EnName, '(', resItem.Family, resItem.Genus, ')'].join(''));
+
+     return renderHtml
 }
 
 function initMenu() {

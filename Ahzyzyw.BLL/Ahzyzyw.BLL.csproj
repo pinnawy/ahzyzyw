@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NewsBLL.cs" />
+    <Compile Include="DigitalResourceBLL.cs" />
     <Compile Include="ResourceBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

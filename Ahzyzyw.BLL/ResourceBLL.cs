@@ -206,19 +206,19 @@ namespace Ahzyzyw.BLL
             return Path.Combine(CurrentContext.Instance.ResourceDir, resId.ToString(), imageName);
         }
 
-        #region ResourceCategroy
+        #region ResourceCategory
 
-        public List<ResourceCategroy> GetSubCategorys(string cateID)
+        public List<ResourceCategory> GetSubCategorys(string cateID)
         {
             return _resourceDAL.GetSubCategorys(cateID);
         }
 
-        public List<ResourceCategroy> GetAllCategorys()
+        public List<ResourceCategory> GetAllCategorys()
         {
             throw new NotImplementedException();
         }
 
-        public string CreateCategory(ResourceCategroy cate, string parentCateID)
+        public string CreateCategory(ResourceCategory cate, string parentCateID)
         {
             return _resourceDAL.CreateCategory(cate, parentCateID);
         }

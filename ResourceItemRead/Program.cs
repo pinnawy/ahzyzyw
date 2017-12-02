@@ -2,7 +2,6 @@
 using Ahzyzyw.DAL.SQLiteImpl;
 using Ahzyzyw.Model;
 using ElpSimWan.Utils;
-using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,7 +23,8 @@ namespace ResourceItemRead
             // UpdateImage.Update();
             // ReplacePic.Start();
 
-            UpdateResource.Start();
+            CreateDigitalResource.Start();
+            //UpdateResource.Start();
             Console.ReadLine();
         }
     }

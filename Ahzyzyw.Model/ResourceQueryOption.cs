@@ -1,30 +1,18 @@
 ﻿namespace Ahzyzyw.Model
 {
     /// <summary>
-    /// 资源查询参数
+    /// 数字资源查询参数
     /// </summary>
-    public class ResourceQueryOption : QueryOptionBase
+    public class DigitalResourceQueryOption : ResourceQueryOption
     {
-        public ResourceQueryOption()
-        {
-            QueryKeyWord = string.Empty;
-            CategroyID = string.Empty;
-            State = ResourceState.None;
-        }
+        /// <summary>
+        /// 功能分类ID
+        /// </summary>
+        public string FuncID { get; set; }
 
         /// <summary>
-        /// 查询关键字
+        /// 入药部位ID
         /// </summary>
-        public string QueryKeyWord { get; set; }
-
-        /// <summary>
-        /// 分类编号
-        /// </summary>
-        public string CategroyID { get; set; }
-
-        /// <summary>
-        /// 资源状态
-        /// </summary>
-        public ResourceState State { get; set; }
+        public string PartID { get; set; }
     }
 }

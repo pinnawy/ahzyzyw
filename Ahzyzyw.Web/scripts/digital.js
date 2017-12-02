@@ -25,21 +25,7 @@ var Medicine = {
 // 加载分页控件
 $(document).ready(function () {
     
-    $("#tabMenu li a").click(function () {
-
-        $("#tabMenu li a").removeAttr("class");
-        $(this).attr('class', 'selected');
-
-        var showPanelId = $(this).attr("for");
-        Medicine.CurrentTab = showPanelId;
-        $("#tabMenu li a").each(function () {
-            var panelId = $(this).attr("for");
-            panelId == showPanelId ? $("#" + panelId).show() : $("#" + panelId).hide();
-        })
-
-        getResourceList(1);
-
-    });
+    initMenuTab();
     initMenu("funcMenu");
     initMenu("partMenu");
     getResourceList(1);
@@ -123,19 +109,36 @@ $(document).ready(function () {
                    .replace(new RegExp("{CnName}", "g"), resItem.CnName)
                    .replace("{Description}", resItem.Description)
                    .replace("{OtherName}", resItem.OtherName || "无")
-                   .replace("{PlantImage}", resItem.PlantImage)
-                   .replace("{Image}", resItem.Image);
 
      if (keyword != '') {
          var reg = new RegExp(keyword, "gm");
-         
          renderHtml = renderHtml.replace(reg, '<span style="color:red;">' + keyword + '</span>');
      }
 
+     renderHtml = renderHtml.replace("{Image}", resItem.Image).replace("{PlantImage}", resItem.PlantImage);
      renderHtml = renderHtml.replace(new RegExp("{Title}","g"), resItem.CnName);
 
      return renderHtml
-}
+ }
+
+ function initMenuTab() {
+     /// <summary>初始化目录TAB</summary>
+     $("#tabMenu li a").click(function () {
+
+         $("#tabMenu li a").removeAttr("class");
+         $(this).attr('class', 'selected');
+
+         var showPanelId = $(this).attr("for");
+         Medicine.CurrentTab = showPanelId;
+         $("#tabMenu li a").each(function () {
+             var panelId = $(this).attr("for");
+             panelId == showPanelId ? $("#" + panelId).show() : $("#" + panelId).hide();
+         })
+
+         getResourceList(1);
+
+     });
+ }
 
 function initMenu(menuId) {
     /// <summary>初始化目录</summary>

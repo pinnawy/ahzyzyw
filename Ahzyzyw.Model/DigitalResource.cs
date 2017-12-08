@@ -15,6 +15,7 @@ namespace Ahzyzyw.Model
         public DigitalResource()
         {
             FakePicList = new List<string>();
+            PlantImageList = new List<string>();
         }
 
         /// <summary>
@@ -74,7 +75,7 @@ namespace Ahzyzyw.Model
         /// <summary>
         /// 植物图
         /// </summary>
-        public string PlantImage
+        public List<String> PlantImageList
         {
             get;
             set;

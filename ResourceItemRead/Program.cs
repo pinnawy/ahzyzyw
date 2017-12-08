@@ -24,6 +24,7 @@ namespace ResourceItemRead
             // ReplacePic.Start();
 
             CreateDigitalResource.Start();
+            // GenerateImage.DoGenerateImage();
             //UpdateResource.Start();
             Console.ReadLine();
         }

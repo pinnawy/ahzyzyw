@@ -170,7 +170,7 @@ namespace ResourceItemRead
 
                     if (id.Equals(resource.No.ToString()))
                     {
-                        resource.PlantImage = image.Name;
+                        resource.PlantImageList.Add(image.Name);
                     }
                 }
             }

@@ -59,8 +59,9 @@ namespace Ahzyzyw.DAL.SQLiteImpl
             var sql = string.Format(@"INSERT INTO DigitalResource (No, ResID, CnName, OtherName, Image, Description, FuncID, FuncName, PartID, PartName, FakeImage, Creator, CreateTime, PlantImage)
                                       VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}', '{13}')"
                                      , resource.No, resource.ResID, resource.CnName, resource.OtherName, resource.Image, resource.Description, resource.FuncID, resource.FunnCateName, resource.PartID, resource.PartName
-                                     , resource.FakePicList.JoinString(":"), resource.Creator
-                                     , resource.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"), resource.PlantImage);
+                                     , resource.FakePicList.JoinString(","), resource.Creator
+                                     , resource.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"), 
+                                     resource.PlantImageList.JoinString(","));
             Debug.WriteLine(sql);
 
             int rows = SQLiteHelper.ExecuteNonQuery(sql);

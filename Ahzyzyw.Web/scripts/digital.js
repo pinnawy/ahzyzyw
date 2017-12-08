@@ -121,7 +121,7 @@ function getResItemHTML(resItem, keyword) {
         renderHtml = renderHtml.replace(reg, '<span style="color:red;">' + keyword + '</span>');
     }
 
-    renderHtml = renderHtml.replace("{Image}", resItem.Image).replace("{PlantImage}", resItem.PlantImage);
+    renderHtml = renderHtml.replace("{Image}", resItem.Image);
     renderHtml = renderHtml.replace(new RegExp("{Title}", "g"), resItem.CnName);
 
     return renderHtml
@@ -184,7 +184,7 @@ function getImagePanel(imgUrlArr, legend) {
     var img = '<a title="{Title}"><img width=500 height=375 src="{Image}" alt="{Title}" /></br><span>{Title}</span></a>';
     $(imgUrlArr).each(function () {
         var imgUrl = this;
-        var ret = /http.*[\d\.]+(.*).jpg/gi.exec(imgUrl);
+        var ret = /http.*[\d\.]+([^\d].*).jpg/gi.exec(imgUrl);
 
         if (ret == null) console && console.warn(imgUrl);
 
@@ -209,7 +209,7 @@ function showMedicineDetail(e) {
     var medicen = detailContent.find("div.img").remove();
 
     // append images
-    detailContent.append(getImagePanel([resItem.PlantImage], "植物图"));
+    detailContent.append(getImagePanel(resItem.PlantImageList, "植物图"));
     detailContent.append(getImagePanel([resItem.Image], "药材图"));
     detailContent.append(getImagePanel(resItem.FakePicList, "伪品图片"));
 

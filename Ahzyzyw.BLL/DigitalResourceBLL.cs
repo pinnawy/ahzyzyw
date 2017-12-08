@@ -95,11 +95,16 @@ namespace Ahzyzyw.BLL
             }
 
             // 植物原图
-            imagePath = GetResImagePath("plant", resource.PlantImage);
-            if (File.Exists(imagePath))
+            for (int index = 0; index < resource.PlantImageList.Count; index++)
             {
-                resource.PlantImage = UrlConverter.GetHttpUrl(imagePath);
+                var plantImage = resource.PlantImageList[index];
+                imagePath = GetResImagePath("plant", plantImage);
+                if (File.Exists(imagePath))
+                {
+                    resource.PlantImageList[index] = UrlConverter.GetHttpUrl(imagePath);
+                }
             }
+
 
             // 伪品图
             for (int index=0; index<resource.FakePicList.Count; index++)

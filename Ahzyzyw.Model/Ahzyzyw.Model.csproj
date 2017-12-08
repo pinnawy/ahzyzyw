@@ -45,8 +45,8 @@
     <Compile Include="News.cs" />
     <Compile Include="NewsQueryOption.cs" />
     <Compile Include="QueryOptionBase.cs" />
-    <Compile Include="ResourceQueryOption - Copy.cs" />
     <Compile Include="ResourceQueryOption.cs" />
+    <Compile Include="DigitalResourceQueryOption.cs" />
     <Compile Include="ResourceState.cs" />
     <Compile Include="ResourceCategroy.cs" />
     <Compile Include="Resource.cs" />

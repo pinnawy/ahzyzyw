@@ -11,9 +11,11 @@
     <style type="text/css">
         #itemDetail {display:none; width: 700px; }
         #itemContent {overflow-y: scroll;}
+        #itemContent div.img { margin-top: 10px;}
+        #itemContent div.img a{display:inline-block; margin-top:5px; padding:5px;  background: white; border:  1px solid #e5e5e5;}
+        #itemContent div.img a span{ color: black; font-size: 14px; cursor: default;}
         
         #itemContent li h3{text-align:center;}
-        #itemContent li div.img {text-align:center;}
         #itemContent li p span{font-weight:bold;}
 
         #tabMenu {

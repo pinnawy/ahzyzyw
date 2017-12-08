@@ -129,7 +129,7 @@ namespace Ahzyzyw.DAL.SQLiteImpl
                 resource.Image = SafeRead<string>(reader, "Image");
                 resource.PlantImage = SafeRead<string>(reader, "PlantImage");
                 var fakeImage = SafeRead<string>(reader, "FakeImage");
-                resource.FakePicList = fakeImage == null ? new List<string>() : new List<string>(fakeImage.Split(new char[] { '#' }));
+                resource.FakePicList =   (fakeImage == null || fakeImage.Trim() == string.Empty )? new List<string>() : new List<string>(fakeImage.Split(new char[] { ',' }));
                 reslist.Add(resource);
             }
 

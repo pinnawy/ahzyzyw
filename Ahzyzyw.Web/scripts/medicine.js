@@ -26,12 +26,17 @@ $(document).ready(function () {
     initMenu();
     getResourceList(1);
 
-    $('#searchbutton').click(function() {
+    $('#searchbutton').click(function () {
+        Medicine.PageNumber = 1;
         getResourceList(Medicine.PageNumber);
     });
 
     $('#query').keydown(function (e ) {
-        if(e.keyCode === 13) {
+        if (e.keyCode === 13) {
+            var queryKeyWord = escape($.trim($('#query').val()));
+            if (queryKeyWord.length !== 0) {
+                Medicine.PageNumber = 1;
+            }
             getResourceList(Medicine.PageNumber);
         }
     });

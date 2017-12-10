@@ -209,7 +209,7 @@ function showMedicineDetail(e) {
     var medicen = detailContent.find("div.img").remove();
 
     // append images
-    detailContent.append(getImagePanel(resItem.PlantImageList, "植物图"));
+    detailContent.append(getImagePanel(resItem.PlantImageList, "基原图"));
     detailContent.append(getImagePanel([resItem.Image], "药材图"));
     detailContent.append(getImagePanel(resItem.FakePicList, "伪品图片"));
 

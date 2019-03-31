@@ -42,6 +42,8 @@ $(document).ready(function () {
     });
 });
 
+
+
  function getResourceList(pageNumber) {
      /// <summary>获取资源列表</summary>
      /// <param name='pageIndex'>页码</param>
@@ -179,3 +181,4 @@ function showMedicineDetail(e) {
 
     $('.blockOverlay').click($.unblockUI);
 }
+

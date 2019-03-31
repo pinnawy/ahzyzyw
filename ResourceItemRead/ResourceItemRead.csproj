@@ -50,6 +50,7 @@
     <Compile Include="ConnectResource.cs" />
     <Compile Include="CreateDigitalResource.cs" />
     <Compile Include="GenerateImage.cs" />
+    <Compile Include="MKLTool.cs" />
     <Compile Include="UpdateResource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

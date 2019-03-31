@@ -23,10 +23,14 @@ namespace ResourceItemRead
             // UpdateImage.Update();
             // ReplacePic.Start();
 
-            CreateDigitalResource.Start();
+            // CreateDigitalResource.Start();
             // GenerateImage.DoGenerateImage();
             //UpdateResource.Start();
-            Console.ReadLine();
+            // Console.ReadLine();
+
+
+            MKLTool.GetKMLInfo(@"D:\Desktop\20180513((66li)new.kmz\temp.kml", "");
+
         }
     }
 }

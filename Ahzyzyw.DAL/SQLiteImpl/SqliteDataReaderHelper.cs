@@ -81,9 +81,9 @@ namespace Ahzyzyw.DAL.SQLiteImpl
                 resource.Image = SafeRead<string>(reader, "Image");
 
                 var plantImage = SafeRead<string>(reader, "PlantImage");
-                resource.PlantImageList = plantImage == null ? new List<string>() : new List<string>(plantImage.Split(new char[] { ',' }));
+                resource.PlantImageList = (plantImage == null || plantImage.Trim() == string.Empty) ? new List<string>() : new List<string>(plantImage.Split(new char[] { ',' }));
                 var fakeImage = SafeRead<string>(reader, "FakeImage");
-                resource.FakePicList = fakeImage == null ? new List<string>() : new List<string>(fakeImage.Split(new char[] { ',' }));
+                resource.FakePicList = (fakeImage == null || fakeImage.Trim() == string.Empty) ? new List<string>() : new List<string>(fakeImage.Split(new char[] { ',' }));
 
                 return resource;
             }
@@ -130,7 +130,7 @@ namespace Ahzyzyw.DAL.SQLiteImpl
                 resource.Creator = SafeRead(reader, "Creator", "admin");
                 resource.Image = SafeRead<string>(reader, "Image");
                 var plantImage = SafeRead<string>(reader, "PlantImage");
-                resource.PlantImageList = plantImage == null ? new List<string>() : new List<string>(plantImage.Split(new char[] { ',' }));
+                resource.PlantImageList = (plantImage == null || plantImage.Trim() == string.Empty )? new List<string>() : new List<string>(plantImage.Split(new char[] { ',' }));
                 var fakeImage = SafeRead<string>(reader, "FakeImage");
                 resource.FakePicList =   (fakeImage == null || fakeImage.Trim() == string.Empty )? new List<string>() : new List<string>(fakeImage.Split(new char[] { ',' }));
                 reslist.Add(resource);

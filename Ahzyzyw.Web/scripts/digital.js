@@ -28,7 +28,7 @@ $(document).ready(function () {
     initMenuTab();
     initMenu("funcMenu");
     initMenu("partMenu");
-    getResourceList(1);
+    
 
     $('#searchbutton').click(function () {
         Medicine.PageNumber = 1;
@@ -44,7 +44,48 @@ $(document).ready(function () {
             getResourceList(Medicine.PageNumber);
         }
     });
+
+    var resID = getQueryResID();
+    if (resID) {
+        getSingleResource(resID);
+    } else {
+        getResourceList(1);
+    }
 });
+
+function getQueryResID() {
+    /// <summary>获取资源ID参数值</summary>
+    /// <return>资源ID，没有资源ID时为undefined</return>
+
+    var idIdx = window.location.href.indexOf("res");
+    if (idIdx > 0) {
+        var resID = window.location.href.substring(idIdx + 4);
+        return resID;
+    }
+}
+
+function getSingleResource(resID) {
+    /// <summary>获取单个资源详情</summary>
+    /// <param name='resID'>资源ID</param>
+
+    $.post("services/DigitalResource.ashx?", { action: 'GetResource', resID: resID, timestamp: new Date().getTime() }, function (data) {
+        resItem = eval('(' + data + ')');
+
+        var itemArr = [];
+        var resDom = $(getResItemHTML(resItem, ""));
+        (function () {
+            resDom.on("click", { item: resItem }, showMedicineDetail);
+        })();
+        itemArr.push(resDom);
+
+        var itemPanel = $("#resItems").empty();
+        $.each(itemArr, function () {
+            itemPanel.append(this);
+        })
+
+        resDom.click();
+    });
+}
 
 function getResourceList(pageNumber) {
     /// <summary>获取资源列表</summary>
@@ -186,13 +227,13 @@ function getImagePanel(imgUrlArr, legend) {
         var imgUrl = this;
         var ret = /http.*[\d\.]+([^\d].*).jpg/gi.exec(imgUrl);
 
-        if (ret == null) console && console.warn(imgUrl);
-
-        var imageHtml = img.replace(/{Image}/gm, imgUrl)
-            .replace(/{Title}/gm, (ret && ret.length > 1 ? ret[1] : imgUrl))
-        imgPanel.append(imageHtml);
-    });
-    
+        if (ret == null) {
+            console && console.warn(imgUrl);
+        } else {
+            var imageHtml = img.replace(/{Image}/gm, imgUrl).replace(/{Title}/gm, (ret && ret.length > 1 ? ret[1] : imgUrl))
+            imgPanel.append(imageHtml);
+        }
+    }); 
 
     return imgPanel;
 }
@@ -239,4 +280,6 @@ function showMedicineDetail(e) {
 
     $('.blockOverlay').click($.unblockUI);
 }
+
+
 

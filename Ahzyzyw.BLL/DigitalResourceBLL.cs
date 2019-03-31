@@ -29,14 +29,13 @@ namespace Ahzyzyw.BLL
         }
 
 
-        //public Resource GetResource(string resID)
-        //{
-        //    var res =_resourceDAL.GetResource(resID);
-        //    AddResourceImage(res);
-        //    return res;
-        //}
+        public DigitalResource GetResource(string resID)
+        {
+            var res = _resourceDAL.GetDigitalResource(resID);
+            AddResourceImage(res);
+            return res;
+        }
 
-      
 
         public string SaveTempImage(byte[] imageBytes, string ext)
         {

@@ -49,7 +49,10 @@ namespace Ahzyzyw.DAL.SQLiteImpl
 
         public Resource GetResource(string resID)
         {
-            var sql = string.Format("SELECT * FROM {0} WHERE ResID='{1}'", TABLE_NAME, resID);
+            var sql = string.Format(@"SELECT R.*, 
+                                    (SELECT CnTitle FROM  ResourceCategory WHERE CategoryID = substr(R.CategoryID,1,7)) AS 'GenFamily',
+                                    (SELECT CnTitle FROM  ResourceCategory WHERE CategoryID = substr(R.CategoryID, 1, 10)) AS 'GenGenus' 
+                                    FROM {0} R WHERE ResID='{1}'", TABLE_NAME, resID);
             Debug.WriteLine(sql);
             var reader = SQLiteHelper.ExecuteReader(sql);
             return reader.ToResource();

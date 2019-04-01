@@ -24,11 +24,10 @@ var Medicine = {
 
 // 加载分页控件
 $(document).ready(function () {
-
     initMenuTab();
     initMenu("funcMenu");
     initMenu("partMenu");
-    
+
 
     $('#searchbutton').click(function () {
         Medicine.PageNumber = 1;
@@ -45,24 +44,13 @@ $(document).ready(function () {
         }
     });
 
-    var resID = getQueryResID();
-    if (resID) {
-        getSingleResource(resID);
+
+    if (resId) {
+        getSingleResource(resId);
     } else {
         getResourceList(1);
     }
 });
-
-function getQueryResID() {
-    /// <summary>获取资源ID参数值</summary>
-    /// <return>资源ID，没有资源ID时为undefined</return>
-
-    var idIdx = window.location.href.indexOf("res");
-    if (idIdx > 0) {
-        var resID = window.location.href.substring(idIdx + 4);
-        return resID;
-    }
-}
 
 function getSingleResource(resID) {
     /// <summary>获取单个资源详情</summary>
@@ -71,19 +59,15 @@ function getSingleResource(resID) {
     $.post("services/DigitalResource.ashx?", { action: 'GetResource', resID: resID, timestamp: new Date().getTime() }, function (data) {
         resItem = eval('(' + data + ')');
 
-        var itemArr = [];
-        var resDom = $(getResItemHTML(resItem, ""));
-        (function () {
-            resDom.on("click", { item: resItem }, showMedicineDetail);
-        })();
-        itemArr.push(resDom);
-
         var itemPanel = $("#resItems").empty();
-        $.each(itemArr, function () {
-            itemPanel.append(this);
-        })
-
-        resDom.click();
+        if (!resItem) {
+            itemPanel.append("没有找到对应资源...");
+        } else {
+            var resDom = $(getResItemHTML(resItem, ""));
+            resDom.on("click", { item: resItem }, showMedicineDetail);
+            itemPanel.append(resDom);
+            resDom.click();
+        }
     });
 }
 
@@ -233,7 +217,7 @@ function getImagePanel(imgUrlArr, legend) {
             var imageHtml = img.replace(/{Image}/gm, imgUrl).replace(/{Title}/gm, (ret && ret.length > 1 ? ret[1] : imgUrl))
             imgPanel.append(imageHtml);
         }
-    }); 
+    });
 
     return imgPanel;
 }

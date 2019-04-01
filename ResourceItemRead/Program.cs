@@ -29,7 +29,8 @@ namespace ResourceItemRead
             // Console.ReadLine();
 
 
-            MKLTool.GetKMLInfo(@"D:\Desktop\20180513((66li)new.kmz\temp.kml", "");
+            //MKLTool.GetKMLInfo(@"D:\Desktop\20180513((66li)new.kmz\temp.kml", "");
+            MKLTool.GenTraceMetaFile("", "");
 
         }
     }

@@ -286,6 +286,8 @@
     <Content Include="ckeditor\skins\v2\skin.js" />
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
+    <Content Include="scripts\wild.js" />
+    <Content Include="wild.aspx" />
     <Content Include="images\medicen.jpg" />
     <Content Include="images\neiye_left.png" />
     <Content Include="images\neiye_right.png" />
@@ -483,6 +485,13 @@
     <Compile Include="ahres.aspx.designer.cs">
       <DependentUpon>ahres.aspx</DependentUpon>
     </Compile>
+    <Compile Include="wild.aspx.cs">
+      <DependentUpon>wild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wild.aspx.designer.cs">
+      <DependentUpon>wild.aspx</DependentUpon>
+    </Compile>
     <Compile Include="digital_specimen.aspx.cs">
       <DependentUpon>digital_specimen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -637,11 +646,14 @@
     <Content Include="services\News.ashx" />
     <None Include="Properties\PublishProfiles\Ahzyzyw.pubxml" />
     <Content Include="services\DigitalResource.ashx" />
+    <Content Include="resource\trace\trace1\trace1.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\digital\fake\" />
     <Folder Include="images\digital\medicien\" />
     <Folder Include="images\digital\plant\" />
+    <Folder Include="resource\trace\trace1\icons\" />
+    <Folder Include="resource\trace\trace1\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

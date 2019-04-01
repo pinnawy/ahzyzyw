@@ -18,7 +18,7 @@
     else if (url.indexOf("garden") > -1) {
         $("#GardenMenu").attr("id", "menu_selected");
     }
-    else if (url.indexOf("study.aspx") > -1) {
+    else if (url.indexOf("study.aspx") > -1 || url.indexOf("wild.aspx") > -1) {
         $("#StudyMenu").attr("id", "menu_selected");
     }
     else if (url.indexOf("produce.aspx") > -1) {

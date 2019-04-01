@@ -61,7 +61,7 @@
                 </li>
                 <li><a href="study.aspx" id="StudyMenu" title="药用植物学习"><span>药用植物学习</span></a>
                     <ul class="menulevel">
-                        <li><a href="empty.aspx" title="野外采药">野外采药</a></li>
+                        <li><a href="wild.aspx" title="野外采药">野外采药</a></li>
                         <li><a href="empty.aspx" title="药用植物学习">药用植物学习</a></li>
                     </ul>
                 </li>

@@ -10,6 +10,6 @@
 namespace Ahzyzyw.Web {
     
     
-    public partial class DigitalSpecimen {
+    public partial class Wild {
     }
 }

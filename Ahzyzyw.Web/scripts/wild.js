@@ -159,29 +159,18 @@ function getImagePanel(imgUrlArr, legend) {
     return imgPanel;
 }
 
-function showMedicineDetail(e) {
-    var detailContent;
-    if (typeof e === "string") {
-        detailContent = e;
-    } else {
-        detailContent = $(this).clone();
-    }
+function showMedicineDetail(desc, img) {
+    
 
-    var resItem = e.data.item;
-    var medicen = detailContent.find("div.img").remove();
-
-    // append images
-    detailContent.append(getImagePanel(resItem.PlantImageList, "基原图"));
-    detailContent.append(getImagePanel([resItem.Image], "药材图"));
-    detailContent.append(getImagePanel(resItem.FakePicList, "伪品图片"));
-
+    var title = desc.substr(0, desc.indexOf("</br>"));
+    desc = desc.replace(title, "");
 
     // block detail
     var itemPanel = $("#itemDetail");
     var itemContentPanel = itemPanel.find("#itemContent").css({
         maxHeight: $(window).height() - 150 + 'px',
     });
-    itemContentPanel.html(detailContent);
+    itemContentPanel.html('<h2>' + title + '</h2>' + desc + '<img src="' + img + '"/>');
 
     var top = ($(window).height() - itemPanel.height()) / 2 - 50;
     $.blockUI({
@@ -223,11 +212,12 @@ window.document.body.appendChild(large_image);
 	  
 
 
-function ComplexCustomOverlay(point, time, icon, image){
+function ComplexCustomOverlay(point, time, icon, image, desc){
     this._point = point;
     this._time = time;
     this._icon = icon;
     this._image = image;
+    this._desc = desc;
 	  
 }
 ComplexCustomOverlay.prototype = new BMap.Overlay();
@@ -272,9 +262,10 @@ ComplexCustomOverlay.prototype.initialize = function(map){
 	  
     icon_image.onclick = function(){
 		
+        showMedicineDetail(that._desc, that._image);
 		
-        large_image.style.display="block";
-        large_image.src = that._image;
+        //large_image.style.display="block";
+        //large_image.src = that._image;
     }
     map.getPanes().labelPane.appendChild(div);
       
@@ -324,9 +315,12 @@ function drawMap(traceData) {
     for (var i = 0; i < images.length; i++) {
         var img= images[i];
         var coodrInfo = img["coord"].split(",");
-
-        var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(coodrInfo[0], coodrInfo[1]), img["name"], "resource/trace/trace1/" + img["icon"], "resource/trace/trace1/" + img["src"]);
-        map.addOverlay(myCompOverlay);
+        var desc = img["desc"];
+        if (desc) {
+            desc = desc.replace(/【/ig, '</br>【');
+            var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(coodrInfo[0], coodrInfo[1]), img["name"], "resource/trace/trace1/" + img["icon"], "resource/trace/trace1/" + img["src"], desc);
+            map.addOverlay(myCompOverlay);
+        }
     }
 
 

@@ -393,7 +393,6 @@
     <Content Include="images\res-search.jpg" />
     <Content Include="images\resDefaultImage.jpg" />
     <Content Include="index.aspx" />
-    <Content Include="Logs\holdplace.txt" />
     <Content Include="news.aspx" />
     <Content Include="scripts\digital.js" />
     <Content Include="scripts\news.js" />
@@ -652,6 +651,7 @@
     <Folder Include="images\digital\fake\" />
     <Folder Include="images\digital\medicien\" />
     <Folder Include="images\digital\plant\" />
+    <Folder Include="Logs\" />
     <Folder Include="resource\trace\trace1\icons\" />
     <Folder Include="resource\trace\trace1\images\" />
   </ItemGroup>

@@ -1,12 +1,10 @@
-﻿<%@ Page Title="中药数字标本馆" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="wild.aspx.cs" Inherits="Ahzyzyw.Web.DigitalSpecimen" %>
+﻿<%@ Page Title="野外采药" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+    CodeBehind="wild.aspx.cs" Inherits="Ahzyzyw.Web.Wild" %>
 
-<asp:Content ID="DigitalSpecimenHeader" ContentPlaceHolderID="HeaderPlaceHolder" runat="server">
-    <script src="scripts/plugin/jquery.pager.js" type="text/javascript"></script>
+<asp:Content ID="WildHeader" ContentPlaceHolderID="HeaderPlaceHolder" runat="server">
     <script src="scripts/plugin/jquery.json-2.2.min.js" type="text/javascript"></script>
     <script src="scripts/common.js" type="text/javascript"></script>
     
-    <link href="css/Pager.css" rel="stylesheet" type="text/css" />
 
     <style type="text/css">
         #itemDetail {display:none; width: 700px; }
@@ -84,6 +82,19 @@
      <div id="itemDetail">
         <div style="text-align:right;cursor: default;"><a style="font-size:16px;padding-right:10px;" onclick="$.unblockUI()">X</a></div>
         <div id="itemContent"  style="text-align:left;padding:3px;">
+        </div>
+        <div style="padding-top: 5px;">
+            <a style="cursor:default;" onclick="$.unblockUI()">关闭</a>
+        </div>
+     </div>
+
+
+    <div id="itemDetail">
+        <div style="text-align:right;cursor: default;"><a style="font-size:16px;padding-right:10px;" onclick="$.unblockUI()">X</a></div>
+        <div id="itemContent"  style="text-align:left;padding:3px;">
+          <li>                            
+               <h3 class="title ellipsis" title="麻黄">麻黄</h3>        
+          </li>
         </div>
         <div style="padding-top: 5px;">
             <a style="cursor:default;" onclick="$.unblockUI()">关闭</a>

@@ -7,7 +7,7 @@
     
 
     <style type="text/css">
-        #itemDetail {display:none; width: 700px; }
+        #itemDetail {display:none; width: 80%; }
         #itemContent {overflow-y: scroll;}
         #itemContent div.img { margin-top: 10px;}
         #itemContent div.img a{display:inline-block; margin-top:5px; padding:5px;  background: white; border:  1px solid #e5e5e5;}

@@ -88,7 +88,7 @@ function getResourceList(pageNumber) {
     var CategoryID = $('#menu li a[class=selected]').attr('cateID');
     // 查询参数
     var option = {
-        PageNumber: queryKeyWord !== '' ? 1 : pageNumber,
+        PageNumber: pageNumber,
         PageSize: Medicine.PageSize,
         QueryKeyWord: queryKeyWord,
         CategoryID: CategoryID
@@ -195,14 +195,35 @@ function showMedicineDetail(e) {
     var itemPanel = $("#itemDetail");
     itemPanel.find("#itemContent").html(detailContent);
 
+    var size = {};
+    if (isMobile()) {
+        itemPanel.css("width", "100%");
+        var img = itemPanel.find('img');
+        img.css({ width: "600px", height: "430px" });
+        size = {
+            top: 30,
+            left: ($(window).width() * 0.2) / 2,
+            width: $(window).width() * 0.8,
+            font: 30
+        }
+    } else {
+        size = {
+            top: ($(window).height() - itemPanel.height()) / 2 - 50,
+            left: ($(window).width() - itemPanel.width()) / 2,
+            width: 600,
+            font: 16
+        }
+    }
+
     $.blockUI({
         message: itemPanel,
         css: {
-            top: ($(window).height() - itemPanel.height()) / 2 - 50 + 'px',
-            left: ($(window).width() - itemPanel.width()) / 2 + 'px',
-            width: '600px',
+            top: size.top + 'px',
+            left: size.left + 'px',
+            width: size.width + 'px',
             fadeIn: 700,
             fadeOut: 700,
+            fontSize: size.font + 'px', 
             cursor: 'normal'
         },
         overlayCSS: {
@@ -212,4 +233,3 @@ function showMedicineDetail(e) {
 
     $('.blockOverlay').click($.unblockUI);
 }
-

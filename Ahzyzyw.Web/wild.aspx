@@ -88,19 +88,6 @@
         </div>
      </div>
 
-
-    <div id="itemDetail">
-        <div style="text-align:right;cursor: default;"><a style="font-size:16px;padding-right:10px;" onclick="$.unblockUI()">X</a></div>
-        <div id="itemContent"  style="text-align:left;padding:3px;">
-          <li>                            
-               <h3 class="title ellipsis" title="麻黄">麻黄</h3>        
-          </li>
-        </div>
-        <div style="padding-top: 5px;">
-            <a style="cursor:default;" onclick="$.unblockUI()">关闭</a>
-        </div>
-     </div>
-
      <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=E3970eb85deba960bb2ac127ddcd38a3"></script>
      <script src="scripts/wild.js" type="text/javascript"></script>
 </asp:Content>

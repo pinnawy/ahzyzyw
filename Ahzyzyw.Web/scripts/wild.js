@@ -144,45 +144,51 @@ ComplexCustomOverlay.prototype.initialize = function (map) {
     div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
 
 
-    div.style.height = "18px";
-    div.style.padding = "2px";
-    div.style.lineHeight = "18px";
-    div.style.whiteSpace = "nowrap";
-    div.style.MozUserSelect = "none";
-    div.style.fontSize = "12px"
-    div.style.color = "#1181d1";
-    var span = this._span = document.createElement("span");
+    //div.style.height = "18px";
+    //div.style.padding = "2px";
+    //div.style.lineHeight = "18px";
+    //div.style.whiteSpace = "nowrap";
+    //div.style.MozUserSelect = "none";
+    //div.style.fontSize = "12px"
+    //div.style.color = "#1181d1";
+    //var span = this._span = document.createElement("span");
     //span.style.backgroundColor = "#eee";
     
     
-    span.style.fontWeight = "bold";
-    span.style.display = "block";
-    span.style.marginLeft = "-25px";
+    //span.style.fontWeight = "bold";
+    //span.style.display = "block";
+    //span.style.marginLeft = "-25px";
     //span.style.position = "relative";
     //span.style.left = "-15px";
     //span.style.top = "40px";
     //span.style.zIndex = "10";
 
-    div.appendChild(span);
-    span.appendChild(document.createTextNode(this._time));
+    //div.appendChild(span);
+    //span.appendChild(document.createTextNode(this._time));
     var that = this;
 
     var icon_image = document.createElement("img");
 
-    icon_image.style.position = "absolute";
-    icon_image.style.width = "80px";
-    icon_image.style.height = "60px";
-    icon_image.src = that._icon;
+    icon_image.style.position = "relative";
+    icon_image.style.width = "6px";
+    icon_image.style.height = "6px";
+    icon_image.style.cursor = "default";
+    //icon_image.src = that._icon;
+    icon_image.src = "images/circle.png";
     div.appendChild(icon_image);
 
-    div.onmouseover = function () {
-        this.style.color = "#fa8722";
-        this.style.fontSize = "14px";
+    icon_image.onmouseover = function () {
+        this.style.width = "12px";
+        this.style.height = "12px";
+        //this.style.left = "-6px";
+        //this.style.top = "-6px";
     }
 
-    div.onmouseout = function () {
-        this.style.color = "#1181d1";
-        this.style.fontSize = "12px";
+    icon_image.onmouseout = function () {
+        this.style.width = "6px";
+        this.style.height = "6px"
+        //this.style.left = "0px";
+        //this.style.top = "0px";
     }
 
     icon_image.onclick = function () {
@@ -198,15 +204,25 @@ ComplexCustomOverlay.prototype.draw = function () {
     var map = this._map;
     var pixel = map.pointToOverlayPixel(this._point);
     this._div.style.left = pixel.x + "px";
-    this._div.style.top = pixel.y - 30 + "px";
+    this._div.style.top = pixel.y + "px";
 }
 
 
 function drawMap(traceData) {
     /// <summary>绘制路径地图</summary>
 
-    $("#map").empty();
-    var map = new BMap.Map("map");
+   
+    var map; 
+
+    if (isMobile()) {
+        $("body").empty().css({height: $(window).height()});
+        $("body").append('<div id="fullMap" style="width: 100%; height:100%;"/>');
+        map = new BMap.Map("fullMap");
+    } else {
+        $("#map").empty();
+        map = new BMap.Map("map");
+    }
+   
     window.map = map;
 
     var points = traceData["points"];
@@ -241,17 +257,28 @@ function drawMap(traceData) {
 
 
     // 绘制图片
+
+    
     var images = traceData["images"];
+    var imgPois = [];
     for (var i = 0; i < images.length; i++) {
         var img = images[i];
         var coodrInfo = img["coord"].split(",");
-        var desc = img["desc"];
-        if (desc) {
-            desc = desc.replace(/【/ig, '</br>【');
-            var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(coodrInfo[0], coodrInfo[1]), img["name"], "resource/trace/trace1/" + img["icon"], "resource/trace/trace1/" + img["src"], img["w"], img["h"], desc);
-            map.addOverlay(myCompOverlay);
-        }
+        imgPois.push(new BMap.Point(coodrInfo[0], coodrInfo[1]));
     }
+
+    var imgConvPois = [];
+    convertPoints(imgPois, imgConvPois, 0, function (imgConvPois) {
+        for (var i = 0; i < imgConvPois.length; i++) {
+            var img = images[i];
+            var desc = img["desc"];
+            if (desc) {
+                desc = desc.replace(/【/ig, '</br>【');
+                var myCompOverlay = new ComplexCustomOverlay(imgConvPois[i], img["name"], "resource/trace/trace1/" + img["icon"], "resource/trace/trace1/" + img["src"], img["w"], img["h"], desc);
+                map.addOverlay(myCompOverlay);
+            }
+        }
+    })
 
 
     // 绘制采药路径
@@ -260,8 +287,44 @@ function drawMap(traceData) {
         var coodrInfo = points[i].split(",");
         pois.push(new BMap.Point(coodrInfo[0], coodrInfo[1]));
     }
-    var polyline = new BMap.Polyline(pois, { strokeColor: "blue", strokeWeight: 2, strokeOpacity: 0.5 });
-    map.addOverlay(polyline);
+   
+    var convPois = [];
+    convertPoints(pois, convPois, 0, function (convPois) {
+        var polyline = new BMap.Polyline(convPois, { strokeColor: "blue", strokeWeight: 2, strokeOpacity: 0.5 });
+        map.addOverlay(polyline);
+    })
+    
+}
+
+var CONVERT_MAX_COUNT = 10;
+
+
+
+function convertPoints(points, convPois, currIdx, callback) {
+    console.log("current idex:" + currIdx);
+    var pois = [];
+    var convertor = new BMap.Convertor();
+    for (var i = currIdx; i < points.length; i++) {
+        pois.push(points[i]);
+
+        if( (i+1) % CONVERT_MAX_COUNT ==0 || i == (points.length - 1)) {
+            convertor.translate(pois, 1, 5, function (data) {
+
+                if (data.status === 0) {
+                    convPois = convPois.concat(data["points"]);
+
+                    if (convPois.length == points.length) {
+                        callback && callback.call(this, convPois);
+                    } else {
+                        convertPoints(points, convPois, i + 1, callback);
+                    }
+
+                }
+            });
+            
+            break;
+        }
+    }
 }
 
 

@@ -196,14 +196,14 @@ function showMedicineDetail(e) {
     itemPanel.find("#itemContent").html(detailContent);
 
     var size = {};
-    if (isMobile()) {
+    var mobile = isMobile();
+    if (mobile) {
         itemPanel.css("width", "100%");
         var img = itemPanel.find('img');
         img.css({ width: "600px", height: "430px" });
         size = {
-            top: 30,
-            left: ($(window).width() * 0.2) / 2,
-            width: $(window).width() * 0.8,
+            top: 0,
+            left: 0,
             font: 30
         }
     } else {
@@ -220,10 +220,11 @@ function showMedicineDetail(e) {
         css: {
             top: size.top + 'px',
             left: size.left + 'px',
-            width: size.width + 'px',
+            width: mobile ? "100%" : size.width + 'px',
             fadeIn: 700,
             fadeOut: 700,
-            fontSize: size.font + 'px', 
+            fontSize: size.font + 'px',
+            border: mobile ? "0px" : "3px solid rgb(170, 170, 170)",
             cursor: 'normal'
         },
         overlayCSS: {

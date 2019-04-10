@@ -286,6 +286,7 @@
     <Content Include="ckeditor\skins\v2\skin.js" />
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
+    <Content Include="images\circle.png" />
     <Content Include="images\left-wild.png" />
     <Content Include="scripts\wild.js" />
     <Content Include="test.html" />

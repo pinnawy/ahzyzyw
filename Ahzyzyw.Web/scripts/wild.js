@@ -75,18 +75,17 @@ function showMedicineDetail(desc, img, w, h) {
     // block detail
     var itemPanel = $("#itemDetail");
     var itemContentPanel = itemPanel.find("#itemContent").css({
-        maxHeight: $(window).height() - 150 + 'px',
+        maxHeight: $(window).height() - 100 + 'px',
     });
-    itemContentPanel.html('<h2>' + title + '</h2>' + desc + '<div style="padding:5px; text-align: center;"><img src="' + img + '"/></div>');
+    itemContentPanel.html('<h2>' + title + '</h2><div style="padding:5px; text-align: center;"><img src="' + img + '"/></div>' + desc);
     var img = itemPanel.find('img');
 
     var size = {};
     if (isMobile()) {
         itemPanel.css("width", "100%");
         size = {
-            top: 30,
-            left: ($(window).width() * 0.2) / 2,
-            width: $(window).width() * 0.8,
+            top: 0,
+            left: 0,
             font: 30
         }
     } else {
@@ -110,7 +109,7 @@ function showMedicineDetail(desc, img, w, h) {
         css: {
             top: size.top + 'px',
             left: size.left + 'px',
-            width: size.width + 'px',
+            width: !size.width ? "100%" : size.width + 'px',
             fadeIn: 700,
             fadeOut: 700,
             fontSize: size.font + 'px',
@@ -170,8 +169,8 @@ ComplexCustomOverlay.prototype.initialize = function (map) {
     var icon_image = document.createElement("img");
 
     icon_image.style.position = "relative";
-    icon_image.style.width = "6px";
-    icon_image.style.height = "6px";
+    icon_image.style.width = "8px";
+    icon_image.style.height = "8px";
     icon_image.style.cursor = "default";
     //icon_image.src = that._icon;
     icon_image.src = "images/circle.png";
@@ -185,8 +184,8 @@ ComplexCustomOverlay.prototype.initialize = function (map) {
     }
 
     icon_image.onmouseout = function () {
-        this.style.width = "6px";
-        this.style.height = "6px"
+        this.style.width = "8px";
+        this.style.height = "8px"
         //this.style.left = "0px";
         //this.style.top = "0px";
     }
@@ -194,6 +193,11 @@ ComplexCustomOverlay.prototype.initialize = function (map) {
     icon_image.onclick = function () {
         showMedicineDetail(that._desc, that._image, that._imageW, that._imageH);
     }
+
+    icon_image.ontouchend = function () {
+        showMedicineDetail(that._desc, that._image, that._imageW, that._imageH);
+    }
+    
 
     map.getPanes().labelPane.appendChild(div);
 
@@ -215,8 +219,10 @@ function drawMap(traceData) {
     var map; 
 
     if (isMobile()) {
-        $("body").empty().css({height: $(window).height()});
-        $("body").append('<div id="fullMap" style="width: 100%; height:100%;"/>');
+        var detailPanel = $("#itemDetail").clone();
+        $("body").find("div").remove();
+        $("body").css({height: $(window).height()});
+        $("body").append('<div id="fullMap" style="width: 100%; height:100%;"/>').append(detailPanel);
         map = new BMap.Map("fullMap");
     } else {
         $("#map").empty();
@@ -226,7 +232,6 @@ function drawMap(traceData) {
     window.map = map;
 
     var points = traceData["points"];
-
     var center = getCenterPoint(points);
 
     //var point = new BMap.Point(center.lon, center.lat);
@@ -298,10 +303,7 @@ function drawMap(traceData) {
 
 var CONVERT_MAX_COUNT = 10;
 
-
-
 function convertPoints(points, convPois, currIdx, callback) {
-    console.log("current idex:" + currIdx);
     var pois = [];
     var convertor = new BMap.Convertor();
     for (var i = currIdx; i < points.length; i++) {
@@ -359,5 +361,3 @@ function getCenterPoint(points) {
 
     return { lon: w + (e - w) / 2, lat: s + (n - s) / 2 }
 }
-
-

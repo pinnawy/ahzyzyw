@@ -80,11 +80,11 @@
     </div>
 
      <div id="itemDetail">
-        <div style="text-align:right;cursor: default;"><a style="font-size:16px;padding-right:10px;" onclick="$.unblockUI()">X</a></div>
+        <div style="text-align:right;cursor: default;"><a style="font-size:16px;padding-right:10px;" ontouchend="$.unblockUI()" onclick="$.unblockUI()">X</a></div>
         <div id="itemContent"  style="text-align:left;padding:3px;">
         </div>
         <div style="padding-top: 5px;">
-            <a style="cursor:default;" onclick="$.unblockUI()">关闭</a>
+            <a style="cursor:default;" ontouchend="$.unblockUI()" onclick="$.unblockUI()">关闭</a>
         </div>
      </div>
 

@@ -152,8 +152,8 @@ ComplexCustomOverlay.prototype.initialize = function (map) {
     //div.style.color = "#1181d1";
     //var span = this._span = document.createElement("span");
     //span.style.backgroundColor = "#eee";
-    
-    
+
+
     //span.style.fontWeight = "bold";
     //span.style.display = "block";
     //span.style.marginLeft = "-25px";
@@ -169,23 +169,24 @@ ComplexCustomOverlay.prototype.initialize = function (map) {
     var icon_image = document.createElement("img");
 
     icon_image.style.position = "relative";
-    icon_image.style.width = "8px";
-    icon_image.style.height = "8px";
+    icon_image.style.width = "32px";
+    icon_image.style.height = "32px";
     icon_image.style.cursor = "default";
+    icon_image.style.top = "-16px";
     //icon_image.src = that._icon;
-    icon_image.src = "images/circle.png";
+    icon_image.src = "images/pin.png";
     div.appendChild(icon_image);
 
     icon_image.onmouseover = function () {
-        this.style.width = "12px";
-        this.style.height = "12px";
+        this.style.width = "36px";
+        this.style.height = "36px";
         //this.style.left = "-6px";
         //this.style.top = "-6px";
     }
 
     icon_image.onmouseout = function () {
-        this.style.width = "8px";
-        this.style.height = "8px"
+        this.style.width = "32px";
+        this.style.height = "32px"
         //this.style.left = "0px";
         //this.style.top = "0px";
     }
@@ -197,7 +198,7 @@ ComplexCustomOverlay.prototype.initialize = function (map) {
     icon_image.ontouchend = function () {
         showMedicineDetail(that._desc, that._image, that._imageW, that._imageH);
     }
-    
+
 
     map.getPanes().labelPane.appendChild(div);
 
@@ -215,20 +216,20 @@ ComplexCustomOverlay.prototype.draw = function () {
 function drawMap(traceData) {
     /// <summary>绘制路径地图</summary>
 
-   
-    var map; 
+
+    var map;
 
     if (isMobile()) {
         var detailPanel = $("#itemDetail").clone();
         $("body").find("div").remove();
-        $("body").css({height: $(window).height()});
+        $("body").css({ height: $(window).height() });
         $("body").append('<div id="fullMap" style="width: 100%; height:100%;"/>').append(detailPanel);
         map = new BMap.Map("fullMap");
     } else {
         $("#map").empty();
         map = new BMap.Map("map");
     }
-   
+
     window.map = map;
 
     var points = traceData["points"];
@@ -255,50 +256,59 @@ function drawMap(traceData) {
     map.centerAndZoom(point, 15);
     //map.setMapStyle({style:'dark'});
 
-    //     var marker = new BMap.Marker(point);  // 创建标注
-    //    map.addOverlay(marker);               // 将标注添加到地图中
+    // var marker = new BMap.Marker(point);  // 创建标注
+    // map.addOverlay(marker);               // 将标注添加到地图中
 
     //  marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
 
-
-    // 绘制图片
-
-    
+    // 绘制图片点
     var images = traceData["images"];
-    var imgPois = [];
-    for (var i = 0; i < images.length; i++) {
-        var img = images[i];
-        var coodrInfo = img["coord"].split(",");
-        imgPois.push(new BMap.Point(coodrInfo[0], coodrInfo[1]));
+    var imgBDps = traceData["imgBDps"];
+    if (imgBDps) {
+        drawImagePoints(imgBDps, images, map);
+    } else {
+        var imgPois = [];
+        for (var i = 0; i < images.length; i++) {
+            var img = images[i];
+            var coodrInfo = img["coord"].split(",");
+            imgPois.push(new BMap.Point(coodrInfo[0], coodrInfo[1]));
+        }
+        var imgConvPois = [];
+        convertPoints(imgPois, imgConvPois, 0, function (imgConvPois) {
+            drawImagePoints(imgConvPois, images, map);
+        })
     }
 
-    var imgConvPois = [];
-    convertPoints(imgPois, imgConvPois, 0, function (imgConvPois) {
-        for (var i = 0; i < imgConvPois.length; i++) {
-            var img = images[i];
-            var desc = img["desc"];
-            if (desc) {
-                desc = desc.replace(/【/ig, '</br>【');
-                var myCompOverlay = new ComplexCustomOverlay(imgConvPois[i], img["name"], "resource/trace/trace1/" + img["icon"], "resource/trace/trace1/" + img["src"], img["w"], img["h"], desc);
-                map.addOverlay(myCompOverlay);
-            }
-        }
-    })
-
-
-    // 绘制采药路径
     var pois = [];
     for (var i = 0; i < points.length; i++) {
         var coodrInfo = points[i].split(",");
         pois.push(new BMap.Point(coodrInfo[0], coodrInfo[1]));
     }
-   
-    var convPois = [];
-    convertPoints(pois, convPois, 0, function (convPois) {
-        var polyline = new BMap.Polyline(convPois, { strokeColor: "blue", strokeWeight: 2, strokeOpacity: 0.5 });
+
+    // 绘制采药路径
+    var traceBDps = traceData["traceBDps"];
+
+    traceBDps = null;
+    if (traceBDps) {
+
+        var polyline = new BMap.Polyline(pois, { strokeColor: "blue", strokeWeight: 2, strokeOpacity: 0.5 });
         map.addOverlay(polyline);
-    })
-    
+
+    } else {
+       
+        var convPois = [];
+        convertPoints(pois, convPois, 0, function (convPois) {
+
+            var tbdps = traceData["traceBDps"];
+            for (var i = 0; i < convPois.length; i++) {
+                console.log((convPois[i].lng === tbdps[i].lng) && (convPois[i].lat === tbdps[i].lat));
+            }
+
+            console.dir(convPois)
+            var polyline = new BMap.Polyline(convPois, { strokeColor: "blue", strokeWeight: 2, strokeOpacity: 0.5 });
+            map.addOverlay(polyline);
+        })
+    }
 }
 
 var CONVERT_MAX_COUNT = 10;
@@ -309,9 +319,9 @@ function convertPoints(points, convPois, currIdx, callback) {
     for (var i = currIdx; i < points.length; i++) {
         pois.push(points[i]);
 
-        if( (i+1) % CONVERT_MAX_COUNT ==0 || i == (points.length - 1)) {
+        if ((i + 1) % CONVERT_MAX_COUNT == 0 || i == (points.length - 1)) {
             convertor.translate(pois, 1, 5, function (data) {
-
+                //console && console.dir(data);
                 if (data.status === 0) {
                     convPois = convPois.concat(data["points"]);
 
@@ -323,10 +333,28 @@ function convertPoints(points, convPois, currIdx, callback) {
 
                 }
             });
-            
+
             break;
         }
     }
+}
+
+function drawImagePoints(imgBDps, images, map) {
+    /// <summary>绘制图片点</summary>
+    /// <param name='imgBDps'>图片BD坐标点列表</param>
+    /// <param name='images'>原始图片信息列表</param>
+    /// <param name='map'>地图对象</param>
+
+    for (var i = 0; i < imgBDps.length; i++) {
+        var img = images[i];
+        var desc = img["desc"];
+        if (desc) {
+            desc = desc.replace(/【/ig, '</br>【');
+            var myCompOverlay = new ComplexCustomOverlay(imgBDps[i], img["name"], "resource/trace/trace1/" + img["icon"], "resource/trace/trace1/" + img["src"], img["w"], img["h"], desc);
+            map.addOverlay(myCompOverlay);
+        }
+    }
+
 }
 
 

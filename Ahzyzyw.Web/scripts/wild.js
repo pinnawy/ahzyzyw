@@ -25,6 +25,14 @@ var Medicine = {
 // 加载分页控件
 $(document).ready(function () {
     initMenu("funcMenu");
+
+    if (isMobile()) {
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            $.unblockUI()
+            history.pushState(null, null, document.URL);
+        });
+    }
 });
 
 function drawTraceMap(dataUrl) {
@@ -295,7 +303,7 @@ function drawMap(traceData) {
         map.addOverlay(polyline);
 
     } else {
-       
+
         var convPois = [];
         convertPoints(pois, convPois, 0, function (convPois) {
 
